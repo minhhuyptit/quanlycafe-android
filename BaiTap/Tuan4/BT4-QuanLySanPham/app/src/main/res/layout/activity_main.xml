@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="20">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#247D86"
+        android:text="Quản lý sản phẩm"
+        android:textSize="22sp"
+        android:gravity="center"
+        android:textColor="#FFFB00"
+        android:textStyle="bold" />
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="8"
+        android:orientation="horizontal"
+        android:weightSum="10">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:orientation="vertical"
+            android:weightSum="4">
+
+            <TextView
+                android:gravity="right"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:paddingRight="10dp"
+                android:paddingTop="15dp"
+                android:text="Danh mục:"
+                android:textSize="19sp" />
+
+            <TextView
+                android:gravity="right"
+                android:paddingRight="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:paddingTop="15dp"
+                android:text="Mã SP:"
+                android:textSize="19sp" />
+            <TextView
+                android:gravity="right"
+                android:paddingRight="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:paddingTop="15dp"
+                android:text="Tên SP:"
+                android:textSize="19sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="7"
+            android:orientation="vertical"
+            android:weightSum="4">
+
+            <Spinner
+                android:id="@+id/spinerDanhMuc"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+            </Spinner>
+            <EditText
+                android:id="@+id/edtMaSP"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:hint="Nhập mã sản phẩm" />
+
+            <EditText
+                android:id="@+id/edtTenSP"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:hint="Nhập tên sản phẩm"
+                android:inputType="number" />
+            <Button
+                android:id="@+id/btnNhapSP"
+                android:layout_weight="1"
+                android:text="Nhập SP"
+                android:layout_width="match_parent"
+                android:layout_height="0dp" />
+        </LinearLayout>
+    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#247D86"
+        android:text="Danh sách sản phẩm theo danh mục"
+        android:textSize="22sp"
+        android:gravity="center"
+        android:textColor="#FFFB00"
+        android:textStyle="bold" />
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="10"
+        android:orientation="horizontal"
+        android:weightSum="10">
+        <ListView
+            android:id="@+id/listSP"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+    </LinearLayout>
+
+</LinearLayout>
