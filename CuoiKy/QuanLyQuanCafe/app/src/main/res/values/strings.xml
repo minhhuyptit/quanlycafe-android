@@ -9,8 +9,8 @@
     <string name="table">Table</string>
     <string name="category">Category</string>
     <string name="ordered">Ordered</string>
-    <string name="more">MORE</string>
-    <string name="less">less</string>
+    <string name="more">+</string>
+    <string name="less">-</string>
     <string name="order">order</string>
     <string name="check">Check</string>
     <string name="coffee">Coffee</string>

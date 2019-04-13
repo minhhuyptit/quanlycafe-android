@@ -49,6 +49,7 @@ public class ProductRecyclerViewAdapter extends RecyclerView.Adapter {
         assert binding != null;
         final Product p = products.get(position);
         binding.txtProductName.setText(p.name);
+        binding.txtPrice.setText(String.valueOf(p.price));
         binding.btnMore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

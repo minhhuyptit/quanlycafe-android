@@ -24,6 +24,7 @@ import xyz.khang.quanlyquancafe.databinding.ActivityTableBinding;
 
 public class TableActivity extends AppCompatActivity implements CommonAPI.Callback, TableRecyclerViewAdapter.Callback {
     ActivityTableBinding binding;
+    int area_id;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -32,7 +33,14 @@ public class TableActivity extends AppCompatActivity implements CommonAPI.Callba
         binding = DataBindingUtil.setContentView(this, R.layout.activity_table);
 
         Intent intent = getIntent();
-        new CommonAPI(this).get_table(getApplicationContext(), intent.getIntExtra("area_id", 0));
+        area_id = intent.getIntExtra("area_id", 0);
+        new CommonAPI(this).get_table(getApplicationContext(), area_id);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        new CommonAPI(this).get_table(getApplicationContext(), area_id);
     }
 
     @Override

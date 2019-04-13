@@ -10,8 +10,7 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:background="@color/colorAccent"
-            android:backgroundTint="#ffe1f0">
+            android:background="#ffe1f0">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -25,10 +24,10 @@
         <android.support.v7.widget.RecyclerView
 
             android:id="@+id/rvTable"
-            tools:listitem="@layout/recycler_view_item_2"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_margin="5dp"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            tools:listitem="@layout/recycler_view_item_2" />
     </LinearLayout>
 </layout>

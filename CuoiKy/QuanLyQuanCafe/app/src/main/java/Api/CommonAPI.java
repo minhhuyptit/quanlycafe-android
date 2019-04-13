@@ -15,7 +15,7 @@ import java.util.Map;
 import javax.security.auth.callback.Callback;
 
 public class CommonAPI implements Callback {
-    static String Huy_ip = "192.168.43.170:7777";
+    static String Huy_ip = "192.168.43.196:7777";
     public static String Network_error = "Connection fail";
 
     private Callback callback;

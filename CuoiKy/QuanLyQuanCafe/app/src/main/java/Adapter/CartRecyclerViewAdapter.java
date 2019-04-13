@@ -63,6 +63,7 @@ public class CartRecyclerViewAdapter extends RecyclerView.Adapter {
         //System.out.println(s);
 
         binding.txtPrice.setText(s);
+
         binding.btnLess.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

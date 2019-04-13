@@ -23,7 +23,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="start"
-                    android:text="@string/category"/>
+                    android:text="@string/category"
+                    android:fontFamily="@font/dancing_script"/>
 
                 <TextView
                     android:id="@+id/txtOrder"
@@ -31,7 +32,8 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:text="@string/category"
-                    android:textSize="30sp" />
+                    android:textSize="30sp"
+                    android:fontFamily="@font/dancing_script"/>
             </FrameLayout>
 
             <android.support.v7.widget.RecyclerView
@@ -67,7 +69,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_gravity="start"
-                    android:text="@string/order" />
+                    android:text="@string/order"
+                    android:fontFamily="@font/dancing_script"/>
 
                 <Button
                     android:background="@drawable/button_shape"
@@ -75,7 +78,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_gravity="end"
-                    android:text="@string/check" />
+                    android:text="@string/check"
+                    android:fontFamily="@font/dancing_script"/>
 
             </FrameLayout>
 

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -25,7 +26,8 @@
                 android:layout_height="match_parent"
                 android:hint="@string/user_name"
                 android:inputType="text"
-                android:maxLines="1" />
+                android:maxLines="1"
+                tools:ignore="Autofill" />
 
             <EditText
                 android:id="@+id/txtPassword"
@@ -33,7 +35,8 @@
                 android:layout_height="match_parent"
                 android:hint="@string/password"
                 android:inputType="textPassword"
-                android:maxLines="1" />
+                android:maxLines="1"
+                tools:ignore="Autofill" />
 
 
             <Button
