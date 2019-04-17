@@ -7,10 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 import Classes.Cart;
 import Classes.Item;
@@ -59,11 +57,10 @@ public class CartRecyclerViewAdapter extends RecyclerView.Adapter {
         final Item i = cart.cartItem.get(keys.get(position));
         binding.txtProductName.setText(i.product.name);
 
-        String s = String.format("%,d",(int)(i.quantity*i.product.price));
-        //System.out.println(s);
+        String s = String.format("%,d", (int) (i.quantity * i.product.price));
 
         binding.txtPrice.setText(s);
-
+        binding.txtQuantity.setText(String.valueOf(i.quantity));
         binding.btnLess.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
