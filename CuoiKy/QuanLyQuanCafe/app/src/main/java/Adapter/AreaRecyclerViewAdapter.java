@@ -9,13 +9,11 @@ import android.view.ViewGroup;
 
 import java.util.List;
 
-import javax.security.auth.callback.Callback;
-
 import Classes.Area;
 import xyz.khang.quanlyquancafe.R;
 import xyz.khang.quanlyquancafe.databinding.RecyclerviewItemAreaBinding;
 
-public class AreaRecyclerViewAdapter extends RecyclerView.Adapter implements Callback {
+public class AreaRecyclerViewAdapter extends RecyclerView.Adapter{
 
     private Callback callback;
 

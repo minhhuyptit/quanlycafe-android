@@ -104,7 +104,7 @@ public class CommonAPI implements Callback {
 
     public void get_table(final Context context, int area) {
         RequestQueue requestQueue = Volley.newRequestQueue(context);
-        String url = "http://" + Huy_ip + "/quanlycafe/public/api/area/"+String.valueOf(area);
+        String url = "http://" + Huy_ip + "/quanlycafe/public/api/area/" + String.valueOf(area);
         StringRequest requestString = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
