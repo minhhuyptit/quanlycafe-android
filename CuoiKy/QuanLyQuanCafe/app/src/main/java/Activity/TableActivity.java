@@ -55,7 +55,7 @@ public class TableActivity extends AppCompatActivity implements CommonAPI.Callba
             List<Table> tables = gson.fromJson(response, collectionType);
 
             RecyclerView recyclerView = binding.rvTable;
-            GridLayoutManager manager = new GridLayoutManager(getApplicationContext(), 1);
+            GridLayoutManager manager = new GridLayoutManager(getApplicationContext(), 4);
             recyclerView.setLayoutManager(manager);
             TableRecyclerViewAdapter adapter = new TableRecyclerViewAdapter(tables, this);
             recyclerView.setAdapter(adapter);
