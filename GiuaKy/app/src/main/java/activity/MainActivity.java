@@ -16,20 +16,19 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this,R.layout.activity_main);
+
         binding.btnCar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 onCarClick();
             }
         });
-
         binding.btnContract.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 onContractClick();
             }
         });
-
         binding.btnCustomer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

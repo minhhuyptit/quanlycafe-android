@@ -5,7 +5,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#EFCEF5">
+        android:background="@drawable/activity_main_background">
 
         <FrameLayout
             android:layout_width="wrap_content"
@@ -37,26 +37,26 @@
 
                 <Button
                     android:id="@+id/btnCustomer"
-                    android:layout_width="160dp"
-                    android:layout_height="160dp"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
                     android:layout_marginEnd="10dp"
                     android:layout_marginRight="10dp"
                     android:background="@drawable/activity_main_button_shape"
                     android:fontFamily="@font/dancing_script"
                     android:rotation="-45"
                     android:text="@string/customer"
-                    android:textSize="30sp"
+                    android:textSize="@dimen/main_activity_text_size"
                     tools:ignore="ButtonStyle" />
 
                 <Button
                     android:id="@+id/btnContract"
-                    android:layout_width="165dp"
-                    android:layout_height="165dp"
+                    android:layout_width="140dp"
+                    android:layout_height="140dp"
                     android:background="@drawable/activity_main_button_shape"
                     android:fontFamily="@font/dancing_script"
                     android:rotation="-45"
                     android:text="@string/contract"
-                    android:textSize="30sp"
+                    android:textSize="@dimen/main_activity_text_size"
                     tools:ignore="ButtonStyle" />
             </LinearLayout>
 
@@ -70,7 +70,7 @@
                 android:fontFamily="@font/dancing_script"
                 android:rotation="-45"
                 android:text="@string/car"
-                android:textSize="30sp" />
+                android:textSize="@dimen/main_activity_text_size" />
         </LinearLayout>
     </FrameLayout>
 </layout>
