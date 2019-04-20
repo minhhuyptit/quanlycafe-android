@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">QuanLyThueXeDuLich</string>
     <string name="logo">Minh Huy Chúa Nổ</string>
+    <string name="customer">Customer</string>
+    <string name="contract">Contract</string>
+    <string name="car">Car</string>
 </resources>
