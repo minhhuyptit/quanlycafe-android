@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:paddingTop="25dp"
+    android:paddingBottom="10dp"
+    android:layout_height="80dp">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:weightSum="20">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="5" >
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/customer"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:orientation="vertical"
+            android:weightSum="3">
+
+            <TextView
+                android:textStyle="bold"
+                android:gravity="center|left"
+                android:paddingLeft="10dp"
+                android:layout_weight="1"
+                android:textSize="18sp"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:text="Mã KH:" />
+
+            <TextView
+                android:textStyle="bold"
+                android:gravity="center|left"
+                android:paddingLeft="10dp"
+                android:layout_weight="1"
+                android:textSize="18sp"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:text="Tên KH:" />
+
+            <TextView
+                android:textStyle="bold"
+                android:gravity="center|left"
+                android:paddingLeft="10dp"
+                android:layout_weight="1"
+                android:textSize="18sp"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:text="Địa chỉ KH:" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="10"
+            android:orientation="vertical"
+            android:weightSum="3">
+
+            <TextView
+                android:id="@+id/tvMaKH"
+                android:gravity="center_vertical"
+                android:paddingLeft="5dp"
+                android:layout_weight="1"
+                android:textSize="16sp"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:text="Tên KH:" />
+
+            <TextView
+                android:id="@+id/tvTenKH"
+                android:gravity="center_vertical"
+                android:paddingLeft="5dp"
+                android:textSize="16sp"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:text="Tên KH:" />
+
+            <TextView
+                android:id="@+id/tvDiaChiKH"
+                android:gravity="center_vertical"
+                android:paddingLeft="5dp"
+                android:textSize="16sp"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:text="Tên KH:" />
+        </LinearLayout>
+
+    </LinearLayout>
+</RelativeLayout>
