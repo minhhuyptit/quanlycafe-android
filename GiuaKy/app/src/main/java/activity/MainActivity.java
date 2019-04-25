@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import xyz.khang.quanlythuexedulich.R;
+import xyz.khang.quanlythuexedulich.activity_list_car;
 import xyz.khang.quanlythuexedulich.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
@@ -50,5 +51,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void onContractClick(){
         Toast.makeText(getApplicationContext(),"Contract",Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(MainActivity.this, activity_list_car.class);
+        startActivity(intent);
     }
 }
