@@ -1,4 +1,4 @@
-package activity;
+package activities;
 
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void onCarClick(){
-        Intent intent = new Intent(this,activity.CarActivity.class);
+        Intent intent = new Intent(this, activities.CarActivity.class);
         startActivity(intent);
     }
 

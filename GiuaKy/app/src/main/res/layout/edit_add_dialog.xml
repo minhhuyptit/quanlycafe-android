@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="#fff"
+        android:orientation="vertical">
+
+        <TextView
+            android:background="#eee"
+            android:id="@+id/lblType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/txtMaXe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/ma_xe" />
+
+        <EditText
+            android:id="@+id/txtTenXe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/ten_xe" />
+
+        <EditText
+            android:id="@+id/txtXuatXu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/xuat_xu" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnCancle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:text="@string/cancle"
+                style="?android:attr/borderlessButtonStyle"/>
+
+            <Button
+                android:id="@+id/btnConfirm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</layout>
