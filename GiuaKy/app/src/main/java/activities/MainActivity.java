@@ -1,4 +1,4 @@
-package activity;
+package activities;
 
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.Toast;
 
 import xyz.khang.quanlythuexedulich.R;
-import xyz.khang.quanlythuexedulich.activity_list_car;
 import xyz.khang.quanlythuexedulich.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
@@ -40,19 +39,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void onCarClick(){
-        Intent intent = new Intent(this,activity.CarActivity.class);
+        Intent intent = new Intent(this, activities.CarActivity.class);
         startActivity(intent);
     }
 
     private void onCustomerClick(){
-        Toast.makeText(getApplicationContext(),"CustomerActivity",Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(this,CustomerActivity.class);
-        this.startActivity(intent);
+        Toast.makeText(getApplicationContext(),"Customer",Toast.LENGTH_SHORT).show();
     }
 
     private void onContractClick(){
         Toast.makeText(getApplicationContext(),"Contract",Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(MainActivity.this, activity_list_car.class);
-        startActivity(intent);
     }
 }

@@ -4,4 +4,8 @@
     <string name="customer">Customer</string>
     <string name="contract">Contract</string>
     <string name="car">Car</string>
+    <string name="ma_xe">Mã xe</string>
+    <string name="ten_xe">Tên xe</string>
+    <string name="xuat_xu">Xuất xứ</string>
+    <string name="cancle">Hủy</string>
 </resources>
