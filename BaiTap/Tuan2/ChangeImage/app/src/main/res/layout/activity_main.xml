@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!--<LinearLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:orientation="vertical"-->
+
+    <!--android:layout_margin="10dp">-->
+
+    <!--<EditText-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="0dp"-->
+    <!--android:layout_weight="5"-->
+    <!--android:gravity="top"-->
+    <!--android:hint="@string/message"/>-->
+
+    <!--<LinearLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:orientation="horizontal">-->
+
+    <!--<TextView-->
+    <!--android:layout_width="0dp"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_weight="5"-->
+    <!--android:gravity="center_vertical"-->
+    <!--android:text="Your message" />-->
+    <!--<Button-->
+    <!--android:layout_width="0dp"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_weight="a"-->
+    <!--android:text="Send"/>-->
+    <!--</LinearLayout>-->
+
+
+    <!--</LinearLayout>-->
+
+    <!--<GridLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:columnCount="2"-->
+    <!--android:padding="10dp">-->
+    <!--<TextView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_row="0"-->
+    <!--android:layout_column="0"-->
+    <!--android:text="To"/>-->
+    <!--<EditText-->
+    <!--android:layout_row="0"-->
+    <!--android:layout_column="a"-->
+    <!--android:text="Enter email address"/>-->
+    <!--<EditText-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_gravity="fill"-->
+    <!--android:layout_row="a"-->
+    <!--android:layout_column="0"-->
+    <!--android:layout_columnSpan="2"-->
+    <!--android:hint="Message"-->
+    <!--/>-->
+    <!--<Button-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_row="2"-->
+    <!--android:layout_column="0"-->
+    <!--android:layout_gravity="center_horizontal"-->
+    <!--android:layout_columnSpan="2"-->
+    <!--android:text="Button"-->
+    <!--/>-->
+    <!--</GridLayout>-->
+
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:orientation="vertical"-->
+        <!--android:weightSum="10">-->
+        <!--<CheckBox-->
+            <!--android:id="@+id/cBox_Chin"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="0dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:text="Chin"/>-->
+        <!--<CheckBox-->
+            <!--android:id="@+id/cBox_Glasses"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="0dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:text="Glasses"/>-->
+        <!--<CheckBox-->
+            <!--android:id="@+id/cBox_Hair"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="0dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:text="Hair"/>-->
+        <!--<CheckBox-->
+            <!--android:id="@+id/cBox_Teeth"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="0dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:text="Teeth"/>-->
+        <!--<ImageView-->
+            <!--android:id="@+id/result"-->
+            <!--android:layout_width="300dp"-->
+            <!--android:layout_height="200dp"-->
+            <!--android:layout_gravity="center_horizontal"-->
+            <!--android:layout_marginTop="20dp"-->
+            <!--android:src="@drawable/ic_launcher_background"-->
+            <!--android:contentDescription="Đây là picture"/>-->
+
+    <!--</LinearLayout>-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="7"
+        android:padding="20dp"
+        android:orientation="vertical">
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:orientation="vertical"
+            >
+           <RadioButton
+               android:id="@+id/radio_Bird"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_weight="1"
+               android:text="Bird"
+               android:onClick="onRadioButtonClick"/>
+            <RadioButton
+                android:id="@+id/radio_Dog"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Dog"
+                android:onClick="onRadioButtonClick"/>
+            <RadioButton
+                android:id="@+id/radio_Cat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Cat"
+                android:onClick="onRadioButtonClick"/>
+            <RadioButton
+                android:id="@+id/radio_Rabbit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Rabbit"
+                android:onClick="onRadioButtonClick"/>
+        </RadioGroup>
+        <ImageView
+            android:id="@+id/result"
+            android:layout_width="370dp"
+            android:layout_height="230dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/ic_launcher_background"/>
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

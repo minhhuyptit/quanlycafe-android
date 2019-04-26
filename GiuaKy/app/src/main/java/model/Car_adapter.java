@@ -59,12 +59,12 @@ public class Car_adapter extends ArrayAdapter<Car> implements CompoundButton.OnC
         Car item = cars.get(position);
 
         //thong tin nan vien
-        holder.txtMaXe.setText(item.id);
-        holder.txtTenXe.setText(item.name);
-        holder.txtXuatXu.setText(item.origin);
+        holder.txtMaXe.setText("Mã xe: " + item.id);
+        holder.txtTenXe.setText("Tên xe: " + item.name);
+        holder.txtXuatXu.setText("Xuất xứ: " + item.origin);
 
         holder.cbHasChoose.setText(item.id);
-        holder.txtMaXe.setText(item.id);
+
         if (item.hasChoose){
             holder.cbHasChoose.setChecked(true);
             holder.cbHasChoose.setVisibility(View.VISIBLE);

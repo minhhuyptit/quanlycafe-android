@@ -82,7 +82,14 @@ public class activity_list_car extends AppCompatActivity {
     }
 
     void onTiepTucClick(){  //Chuyen sang man hinh Hop Dong
-        Intent intent = new Intent(activity_list_car.this, activity_car_contract.class);
-        startActivity(intent);
+        for(Car c: data){
+            if(c.isHasChoose()){
+                Intent intent = new Intent(activity_list_car.this, activity_car_contract.class);
+                startActivity(intent);
+                return;
+            }
+        }
+        Toast.makeText(this, "Chưa có xe nào được chọn!", Toast.LENGTH_SHORT).show();
+
     }
 }

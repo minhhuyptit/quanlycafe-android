@@ -49,9 +49,9 @@ public class CarContract_adapter extends ArrayAdapter<CarContract> {
         CarContract item = cars.get(position);
 
         //thong tin nan vien
-        holder.txtMaXe.setText(item.id);
-        holder.txtSoNgay.setText(item.sumDay);
-        holder.txtGiaThue.setText(item.price);
+        holder.txtMaXe.setText("Mã xe: " + item.id);
+        holder.txtSoNgay.setText("Số ngày: " + item.sumDay);
+        holder.txtGiaThue.setText("Giá thuê: " + item.price);
 
         return row;
 
