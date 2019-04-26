@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:orientation="vertical">
+       <TextView
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:text="Quản Lý Nhân Viên"
+           android:textAlignment="center"
+           android:background="#007505"
+           android:textColor="#FFFFFF"
+           android:textSize="20dp"/>
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="horizontal"
+           android:weightSum="5">
+           <LinearLayout
+               android:layout_width="0dp"
+               android:layout_height="match_parent"
+               android:orientation="vertical"
+               android:layout_weight="1">
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:text="Mã NV: "
+                   android:paddingTop="13dp"
+                   android:paddingBottom="13dp"/>
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:text="Tên NV: "
+                   android:paddingTop="13dp"
+                   android:paddingBottom="13dp"/>
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:text="Giới tính: "
+                   android:paddingTop="13dp"
+                   android:paddingBottom="13dp"/>
+           </LinearLayout>
+
+           <LinearLayout
+               android:layout_width="0dp"
+               android:layout_height="match_parent"
+               android:orientation="vertical"
+               android:layout_weight="4">
+               <EditText
+                   android:id="@+id/txtMaNV"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content" />
+               <EditText
+                   android:id="@+id/txtTenNV"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content" />
+               <RadioGroup
+                   android:id="@+id/radioGroup"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:orientation="horizontal">
+                   <RadioButton
+                       android:id="@+id/nu"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="Nữ"
+                       android:checked="true"/>
+                   <RadioButton
+                       android:id="@+id/nam"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="Nam"/>
+               </RadioGroup>
+               <Button
+                   android:id="@+id/btnNhap"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:text="Nhập NV"
+                   android:layout_gravity="right"/>
+           </LinearLayout>
+
+       </LinearLayout>
+       //Quan ly nhan vien
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="horizontal">
+           <TextView
+               android:layout_width="0dp"
+               android:layout_weight="1"
+               android:layout_height="30dp"
+               android:text="Danh sách nhân viên:"
+               android:background="#007505"
+               android:textColor="#FFFFFF"
+               android:textSize="20dp"/>
+           <Button
+               android:layout_width="50dp"
+               android:layout_height="30dp"
+               android:layout_gravity="right"
+               android:text="X"/>
+       </LinearLayout>
+
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="match_parent">
+           <ListView
+               android:id="@+id/listView"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content">
+           </ListView>
+
+       </LinearLayout>
+   </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
