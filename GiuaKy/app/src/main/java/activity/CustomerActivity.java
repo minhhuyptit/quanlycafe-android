@@ -74,20 +74,23 @@ public class CustomerActivity extends AppCompatActivity {
                 btnConfirm.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        if(txtMaKH.equals("")){
+                        if(txtMaKH.getText().toString().equals("")){
                             Toast.makeText(CustomerActivity.this, "Mã Khách Hàng không được rỗng!", Toast.LENGTH_SHORT).show();
                             return;
-                        }else if(txtTenKH.equals("")){
+                        }else if(txtTenKH.getText().toString().equals("")){
                             Toast.makeText(CustomerActivity.this, "Tên Khách Hàng không được rỗng!", Toast.LENGTH_SHORT).show();
                             return;
                         }else if(checkExistMaKH(txtMaKH.getText().toString())){
                             Toast.makeText(CustomerActivity.this, "Mã Khách Hàng đã tồn tại!", Toast.LENGTH_SHORT).show();
                             return;
                         }
-                        Toast.makeText(CustomerActivity.this, "OK", Toast.LENGTH_SHORT).show();
+                        listRootKH.add(new Customer(txtMaKH.getText().toString(), txtTenKH.getText().toString(), txtDiaChiKH.getText().toString()));
+                        listKH.add(new Customer(txtMaKH.getText().toString(), txtTenKH.getText().toString(), txtDiaChiKH.getText().toString()));
+                        adapter.notifyDataSetChanged();
+                        Toast.makeText(CustomerActivity.this, "Thêm thành công", Toast.LENGTH_SHORT).show();
+                        dialog.dismiss();
                     }
                 });
-
                 dialog.show();
             }
         });
@@ -105,14 +108,67 @@ public class CustomerActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         switch (which){
                             case 0:
-                                Toast.makeText(CustomerActivity.this, "Edit KH " + listKH.get(position).getTenKH(), Toast.LENGTH_SHORT).show();
+                                final Dialog dialog_2 = new Dialog(CustomerActivity.this);
+                                dialog_2.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                                dialog_2.setCancelable(false);
+                                dialog_2.setContentView(R.layout.add_customer_dialog);
+
+                                Button btnConfirm = dialog_2.findViewById(R.id.btnConfirm);
+                                Button btnCancle = dialog_2.findViewById(R.id.btnCancle);
+                                final EditText txtMaKH = dialog_2.findViewById(R.id.txtMaKH);
+                                final EditText txtTenKH = dialog_2.findViewById(R.id.txtTenKH);
+                                final EditText txtDiaChiKH = dialog_2.findViewById(R.id.txtDiaChiKH);
+
+                                txtMaKH.setText(listKH.get(position).getMaKH());
+                                txtTenKH.setText(listKH.get(position).getTenKH());
+                                txtDiaChiKH.setText(listKH.get(position).getDiachiKH());
+                                txtMaKH.setEnabled(false);
+                                btnCancle.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        dialog_2.dismiss();
+                                    }
+                                });
+                                btnConfirm.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+                                        if(txtTenKH.getText().toString().equals("")){
+                                            Toast.makeText(CustomerActivity.this, "Tên Khách Hàng không được rỗng!", Toast.LENGTH_SHORT).show();
+                                            return;
+                                        }
+                                        listKH.get(position).setTenKH(txtTenKH.getText().toString());
+                                        listKH.get(position).setDiachiKH(txtDiaChiKH.getText().toString());
+                                        adapter.notifyDataSetChanged();
+                                        Toast.makeText(CustomerActivity.this, "Sửa thành công", Toast.LENGTH_SHORT).show();
+                                        dialog_2.dismiss();
+                                    }
+                                });
+                                dialog_2.show();
                                 break;
                             case 1:
-                                //Delete element at listRootKH
-                                listRootKH.remove(listKH.get(position));
-                                //Delete element at listKH
-                                listKH.remove(position);
-                                adapter.notifyDataSetChanged();
+                                try {
+                                    AlertDialog alertDialog = new AlertDialog.Builder(CustomerActivity.this).create();
+                                    alertDialog.setTitle("Confirm delete");
+                                    alertDialog.setMessage("Are you sure?");
+                                    alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "Delete",
+                                            new DialogInterface.OnClickListener() {
+                                                public void onClick(DialogInterface dialog, int which) {
+                                                    listRootKH.remove(listKH.get(position)); //Delete element at listRootKH
+                                                    listKH.remove(position);                 //Delete element at listKH
+                                                    adapter.notifyDataSetChanged();
+                                                    Toast.makeText(CustomerActivity.this, "Xóa thành công", Toast.LENGTH_SHORT).show();
+                                                }
+                                            });
+                                    alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Cancle",
+                                            new DialogInterface.OnClickListener() {
+                                                public void onClick(DialogInterface dialog, int which) {
+                                                    dialog.dismiss();
+                                                }
+                                            });
+                                    alertDialog.show();
+                                } catch (Exception e) {
+                                    Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                                }
                                 break;
                         }
                     }
