@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">TH_doi_format_chu</string>
+    <string name="format">Format</string>
+    <string name="number_type">Number type</string>
+    <string name="background">Background</string>
+    <string name="text_color">Text color</string>
+    <string name="center">Center</string>
+    <string name="odd">Odd</string>
+    <string name="even">Even</string>
+    <string name="both">Both</string>
+    <string name="show_result">SHOW RESULT</string>
+</resources>
