@@ -7,18 +7,21 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import xyz.khang.quanlythuexedulich.R;
 import xyz.khang.quanlythuexedulich.activity_list_car;
 import xyz.khang.quanlythuexedulich.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
-
+    public static DatabaseReference root;
     ActivityMainBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this,R.layout.activity_main);
-
+        root = FirebaseDatabase.getInstance().getReference();
         binding.btnCar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
