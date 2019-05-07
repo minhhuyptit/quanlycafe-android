@@ -49,7 +49,7 @@ public class Car_adapter extends ArrayAdapter<Car> implements CompoundButton.OnC
             holder.txtTenXe = row.findViewById(R.id.txtTenXe);
             holder.txtXuatXu = row.findViewById(R.id.txtXuatXu);
             holder.cbHasChoose = row.findViewById(R.id.cbHasChoose);
-            holder.linearLayout = row.findViewById(R.id.lbackground);
+//            holder.linearLayout = row.findViewById(R.id.lbackground);
 
             row.setTag(holder);
         } else {
@@ -68,13 +68,10 @@ public class Car_adapter extends ArrayAdapter<Car> implements CompoundButton.OnC
         if (item.hasChoose){
             holder.cbHasChoose.setChecked(true);
             holder.cbHasChoose.setVisibility(View.VISIBLE);
-            holder.linearLayout.setBackgroundColor(Color.YELLOW);
-            //android:background="#FFC107"
         }
         else{
             holder.cbHasChoose.setChecked(false);
             holder.cbHasChoose.setVisibility(View.INVISIBLE);
-            holder.linearLayout.setBackgroundColor(Color.WHITE);
         }
 
 

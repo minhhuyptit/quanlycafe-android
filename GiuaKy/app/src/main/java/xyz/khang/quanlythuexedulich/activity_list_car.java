@@ -1,8 +1,11 @@
 package xyz.khang.quanlythuexedulich;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -11,8 +14,16 @@ import android.widget.CompoundButton;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import activities.MainActivity;
+import activity.CustomerActivity;
 import model.Car;
 import model.CarContract;
 import model.Car_adapter;
@@ -23,15 +34,44 @@ public class activity_list_car extends AppCompatActivity {
     private Button btnTiepTuc;
     private CheckBox cbHasChoose;
     public static ArrayList<Car> data = new ArrayList<>();
-
+    DatabaseReference rootCar = MainActivity.root.child("cars");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_car);
         setControl();
         setEvent();
+        rootCar.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                classes.Car c = dataSnapshot.getValue(classes.Car.class);
+                if(!existCar(c.MAXE)){
+                    Car car = new Car(c.MAXE, c.TENXE, c.XUATXU, false);
+                    data.add(car);
+                    adapter.notifyDataSetChanged();
+                }
+            }
 
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
 
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
         //Click tiep tuc
         btnTiepTuc.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,6 +94,7 @@ public class activity_list_car extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
     }
 
     private  void setControl(){
@@ -63,7 +104,7 @@ public class activity_list_car extends AppCompatActivity {
     }
 
     private  void setEvent(){
-        KhoiTao();
+        //KhoiTao();
         adapter = new Car_adapter(this, R.layout.car_itemrow,data);
         listView.setAdapter(adapter);
     }
@@ -82,6 +123,7 @@ public class activity_list_car extends AppCompatActivity {
     }
 
     void onTiepTucClick(){  //Chuyen sang man hinh Hop Dong
+
         for(Car c: data){
             if(c.isHasChoose()){
                 Intent intent = new Intent(activity_list_car.this, activity_car_contract.class);
@@ -90,6 +132,10 @@ public class activity_list_car extends AppCompatActivity {
             }
         }
         Toast.makeText(this, "Chưa có xe nào được chọn!", Toast.LENGTH_SHORT).show();
-
+    }
+    boolean existCar(String MAXE){
+        for(Car c: data)
+            if(c.getId().equals(MAXE)) return true;
+        return false;
     }
 }

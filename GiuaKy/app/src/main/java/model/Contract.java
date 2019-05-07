@@ -1,25 +1,19 @@
 package model;
 
-public class Contrat {
-    String SOHD;
+import java.util.HashMap;
+
+public class Contract {
     String NGAYHD;
     String MAKH;
+    public HashMap<String, ContractDetail> contractDetail;
 
-    public Contrat() {
+    public Contract() {
     }
 
-    public Contrat(String SOHD, String NGAYHD, String MAKH) {
-        this.SOHD = SOHD;
+    public Contract(String NGAYHD, String MAKH) {
         this.NGAYHD = NGAYHD;
         this.MAKH = MAKH;
-    }
-
-    public String getSOHD() {
-        return SOHD;
-    }
-
-    public void setSOHD(String SOHD) {
-        this.SOHD = SOHD;
+        contractDetail = new HashMap<>();
     }
 
     public String getNGAYHD() {
@@ -36,5 +30,13 @@ public class Contrat {
 
     public void setMAKH(String MAKH) {
         this.MAKH = MAKH;
+    }
+
+    public HashMap<String, ContractDetail> getContractDetail() {
+        return contractDetail;
+    }
+
+    public void setContractDetail(HashMap<String, ContractDetail> contractDetailHashMap) {
+        this.contractDetail = contractDetailHashMap;
     }
 }
