@@ -40,15 +40,38 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
+
+        final RecyclerviewItemBinding binding = DataBindingUtil.findBinding(viewHolder.itemView);
+        assert binding != null;
+
+        int color = Color.parseColor(formatValue(objectList.get(i).getValue()));
+        int textColor = Color.rgb(255-Color.red(color),
+                255-Color.green(color),
+                255-Color.blue(color));
+
+
+        binding.txtCode.setText(objectList.get(i).getValue());
+        binding.txtCode.setTextColor(textColor);
+
+        binding.txtColor.setText(objectList.get(i).getColor());
+        binding.txtColor.setTextColor(textColor);
+
         try {
-            final RecyclerviewItemBinding binding = DataBindingUtil.findBinding(viewHolder.itemView);
-            assert binding != null;
-            binding.txtCode.setText(objectList.get(i).getValue());
-            binding.txtColor.setText(objectList.get(i).getColor());
-            binding.background.setBackgroundColor(Color.parseColor(objectList.get(i).getValue()));
+            binding.background.setBackgroundColor(color);
         } catch (Exception e) {
-            Log.d("error",e.getMessage());
+            Log.d("error", e.getMessage());
         }
+    }
+
+    private String formatValue(String value){
+        String str_result = "#";
+        for (char c : value.toCharArray()) {
+            if (!(c == '#')) {
+                str_result = str_result.concat(String.valueOf(c));
+                str_result = str_result.concat(String.valueOf(c));
+            }
+        }
+        return str_result;
     }
 
     @Override
