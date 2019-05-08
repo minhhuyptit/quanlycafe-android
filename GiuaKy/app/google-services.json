@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "444302338036",
+    "firebase_url": "https://quanlyxe-ee7a1.firebaseio.com",
+    "project_id": "quanlyxe-ee7a1",
+    "storage_bucket": "quanlyxe-ee7a1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:444302338036:android:9e03277e0b3a3662",
+        "android_client_info": {
+          "package_name": "xyz.khang.quanlythuexedulich"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "444302338036-5h2s2se59c4u6sromifrfff5605b5k62.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD60S_xGNUvabJdtGBtyEDBkfj7S1o7c2E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "444302338036-5h2s2se59c4u6sromifrfff5605b5k62.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

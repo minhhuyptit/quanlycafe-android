@@ -5,6 +5,7 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.GridLayoutManager;
@@ -16,6 +17,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,17 +31,16 @@ import xyz.khang.quanlythuexedulich.R;
 import xyz.khang.quanlythuexedulich.databinding.ActivityCarBinding;
 
 public class CarActivity extends Activity implements RecyclerViewCarAdapter.Callback {
-
+    RecyclerViewCarAdapter adapter;
     ActivityCarBinding binding;
     List<Car> cars = new ArrayList<>();
-
+    DatabaseReference rootCar = MainActivity.root.child("cars");
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_car);
 
-        fakeData();
-
+        //fakeData();
         initRecyclerView();
 
         binding.fab.setOnClickListener(new View.OnClickListener() {
@@ -45,13 +50,40 @@ public class CarActivity extends Activity implements RecyclerViewCarAdapter.Call
             }
         });
 
+        rootCar.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                cars.add(dataSnapshot.getValue(Car.class));
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 
     private void initRecyclerView() {
         RecyclerView recyclerView = binding.rcvCar;
         GridLayoutManager manager = new GridLayoutManager(getApplicationContext(), 1);
         recyclerView.setLayoutManager(manager);
-        RecyclerViewCarAdapter adapter = new RecyclerViewCarAdapter(this, cars);
+        adapter = new RecyclerViewCarAdapter(this, cars);
         recyclerView.setAdapter(adapter);
     }
 
@@ -87,7 +119,8 @@ public class CarActivity extends Activity implements RecyclerViewCarAdapter.Call
                     car.TENXE = txtTenXe.getText().toString();
                     car.XUATXU = txtXuatXu.getText().toString();
                     car.MAXE = txtMAXE.getText().toString();
-                    cars.add(car);
+//                    cars.add(car);
+                    rootCar.child(car.MAXE).setValue(car);
                     initRecyclerView();
                     dialog.dismiss();
                 } else {
@@ -108,6 +141,7 @@ public class CarActivity extends Activity implements RecyclerViewCarAdapter.Call
             alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "Delete",
                     new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
+                            rootCar.child(MAXE).setValue(null);
                             cars.remove(findCar(MAXE));
                             initRecyclerView();
                         }
@@ -159,6 +193,7 @@ public class CarActivity extends Activity implements RecyclerViewCarAdapter.Call
             public void onClick(View v) {
                 findCar(MAXE).XUATXU = txtXuatXu.getText().toString();
                 findCar(MAXE).TENXE = txtTenXe.getText().toString();
+                rootCar.child(MAXE).setValue(findCar(MAXE));
                 initRecyclerView();
                 dialog.dismiss();
             }
@@ -224,6 +259,9 @@ public class CarActivity extends Activity implements RecyclerViewCarAdapter.Call
         cars.add(car);
     }
 
+    void createCarData(){
+        for(Car c: cars) rootCar.child(c.MAXE).setValue(c);
+    }
     private Car findCar(String MAXE) {
         for (Car c : cars) {
             if (c.MAXE.equals(MAXE)) {
