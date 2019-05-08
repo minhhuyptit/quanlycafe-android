@@ -2,35 +2,45 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <LinearLayout
-        android:layout_width="300dp"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:background="#fff"
+        android:background="#4100BCD4"
+        android:paddingBottom="10dp"
         android:orientation="vertical">
 
         <TextView
-            android:background="#eee"
             android:id="@+id/lblType"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#97FF1414"
             android:textAlignment="center"
-            android:textSize="30sp"
+            android:textColor="#FFFFFF"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:textSize="22sp"
             android:textStyle="bold" />
 
         <EditText
             android:id="@+id/txtMaXe"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:hint="@string/ma_xe" />
 
         <EditText
             android:id="@+id/txtTenXe"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/ten_xe" />
 
         <EditText
             android:id="@+id/txtXuatXu"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/xuat_xu" />
@@ -44,15 +54,21 @@
             <Button
                 android:id="@+id/btnCancle"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#fff"
-                android:text="@string/cancle"
+                android:layout_height="40dp"
+                android:background="#C8FF9900"
+                android:textColor="#fff"
+                android:text="Cancel"
                 style="?android:attr/borderlessButtonStyle"/>
 
             <Button
                 android:id="@+id/btnConfirm"
+                android:background="#D804C4FF"
+                android:textColor="#fff"
+                android:text="OK"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="10dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="40dp" />
 
 
         </LinearLayout>

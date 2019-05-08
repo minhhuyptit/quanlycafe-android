@@ -34,12 +34,14 @@
                 android:paddingLeft="10dp"
                 android:layout_weight="1"
                 android:textSize="18sp"
+                android:textColor="#00FFE3"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:text="Mã KH:" />
 
             <TextView
                 android:textStyle="bold"
+                android:textColor="#00FFE3"
                 android:gravity="center|left"
                 android:paddingLeft="10dp"
                 android:layout_weight="1"
@@ -51,12 +53,13 @@
             <TextView
                 android:textStyle="bold"
                 android:gravity="center|left"
+                android:textColor="#00FFE3"
                 android:paddingLeft="10dp"
                 android:layout_weight="1"
                 android:textSize="18sp"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:text="Địa chỉ KH:" />
+                android:text="Địa chỉ:" />
         </LinearLayout>
 
         <LinearLayout
@@ -67,6 +70,7 @@
             android:weightSum="3">
 
             <TextView
+                android:textColor="#FFFFFF"
                 android:id="@+id/tvMaKH"
                 android:gravity="center_vertical"
                 android:paddingLeft="5dp"
@@ -77,6 +81,7 @@
                 android:text="Tên KH:" />
 
             <TextView
+                android:textColor="#FFFFFF"
                 android:id="@+id/tvTenKH"
                 android:gravity="center_vertical"
                 android:paddingLeft="5dp"
@@ -87,6 +92,7 @@
                 android:text="Tên KH:" />
 
             <TextView
+                android:textColor="#FFFFFF"
                 android:id="@+id/tvDiaChiKH"
                 android:gravity="center_vertical"
                 android:paddingLeft="5dp"

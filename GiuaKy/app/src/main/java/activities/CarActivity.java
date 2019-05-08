@@ -100,9 +100,8 @@ public class CarActivity extends Activity implements RecyclerViewCarAdapter.Call
         final EditText txtTenXe = dialog.findViewById(R.id.txtTenXe);
         final EditText txtXuatXu = dialog.findViewById(R.id.txtXuatXu);
 
-        String type = "Thêm";
+        String type = "Thêm Siêu Xe";
         lblType.setText(type);
-        btnConfirm.setText(type);
 
         btnCancle.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -174,9 +173,8 @@ public class CarActivity extends Activity implements RecyclerViewCarAdapter.Call
         final EditText txtTenXe = dialog.findViewById(R.id.txtTenXe);
         final EditText txtXuatXu = dialog.findViewById(R.id.txtXuatXu);
 
-        String type = "Sửa";
+        String type = "Sửa Siêu Xe";
         lblType.setText(type);
-        btnConfirm.setText(type);
         txtMAXE.setText(MAXE);
         txtTenXe.setText(findCar(MAXE).TENXE);
         txtXuatXu.setText(findCar(MAXE).XUATXU);
