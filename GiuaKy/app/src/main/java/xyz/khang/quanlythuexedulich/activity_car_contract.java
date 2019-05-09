@@ -1,6 +1,7 @@
 package xyz.khang.quanlythuexedulich;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,7 +11,11 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -31,7 +36,6 @@ public class activity_car_contract extends AppCompatActivity {
     EditText edtSoHD, edtMaKH, edtNgayHD;
     Button btnHoanThanh;
     DatabaseReference rootContrats = MainActivity.root.child("contracts");
-    DatabaseReference rootContratDetail = MainActivity.root.child("contractdetail");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +49,9 @@ public class activity_car_contract extends AppCompatActivity {
                 onHoanThanhClick();
             }
         });
+
+        Query query = rootContrats.limitToLast(1);
+        query.addValueEventListener(eventListenerGetIDHD);
     }
 
     private  void setControl(){
@@ -97,4 +104,40 @@ public class activity_car_contract extends AppCompatActivity {
         //gọi hàm format để lấy chuỗi ngày tháng năm đúng theo yêu cầu
         return sdf.format(date);
     }
+    String maHDAuto(String m){
+        String result = "HD";
+        int l=4;    //chieu dai chuoi tu dong 0001-9999
+        int number = Integer.parseInt(m.substring(2))+1;
+        int n = countNumber(number);
+        for(int i=0; i<l-n; i++) result+="0";
+        return result+number;
+    }
+    int countNumber(int n){
+        int dem =0;
+        while(n>0){
+            dem++;
+            n/=10;
+        }
+        return dem;
+    }
+    ValueEventListener eventListenerGetIDHD = new ValueEventListener() {
+        @Override
+        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+            if(dataSnapshot.getChildrenCount()==0) {
+                edtSoHD.setText("HD0001");
+                return;
+            }
+            for(DataSnapshot snapshot:dataSnapshot.getChildren()){
+                String maHDAuto = maHDAuto(snapshot.getKey());
+                edtSoHD.setText(maHDAuto);
+                Log.e("id", maHDAuto);
+            }
+
+        }
+
+        @Override
+        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+        }
+    };
 }
