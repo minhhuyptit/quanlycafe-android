@@ -5,6 +5,7 @@ import java.util.HashMap;
 public class Contract {
     String NGAYHD;
     String MAKH;
+    boolean STATUS;
     public HashMap<String, ContractDetail> contractDetail;
 
     public Contract() {
@@ -13,6 +14,7 @@ public class Contract {
     public Contract(String NGAYHD, String MAKH) {
         this.NGAYHD = NGAYHD;
         this.MAKH = MAKH;
+        this.STATUS = true;
         contractDetail = new HashMap<>();
     }
 
@@ -38,5 +40,13 @@ public class Contract {
 
     public void setContractDetail(HashMap<String, ContractDetail> contractDetailHashMap) {
         this.contractDetail = contractDetailHashMap;
+    }
+
+    public boolean isSTATUS() {
+        return STATUS;
+    }
+
+    public void setSTATUS(boolean STATUS) {
+        this.STATUS = STATUS;
     }
 }

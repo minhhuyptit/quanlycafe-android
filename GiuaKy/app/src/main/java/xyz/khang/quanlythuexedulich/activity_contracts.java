@@ -66,6 +66,7 @@ public class activity_contracts extends AppCompatActivity {
             if(dataSnapshot.exists()){
                 data.clear();
                 for(DataSnapshot snapshot: dataSnapshot.getChildren()){
+                    Log.e("dfdf", snapshot.getValue().toString());
                     Contract c = snapshot.getValue(Contract.class);
                     ContractModel contractModel = new ContractModel(snapshot.getKey(),c.getMAKH(), c.getNGAYHD());
                     Log.e("contract", contractModel.toString());
