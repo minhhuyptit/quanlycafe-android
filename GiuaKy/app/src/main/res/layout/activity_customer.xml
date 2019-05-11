@@ -43,8 +43,9 @@
 
         <advance_control.MovableFloatingActionButton
             android:id="@+id/fab"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:backgroundTint="@android:color/transparent"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:layout_margin="10dp"
             android:src="@drawable/add_icon"
             app:fabSize="normal"

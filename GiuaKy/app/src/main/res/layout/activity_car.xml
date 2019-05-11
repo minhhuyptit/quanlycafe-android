@@ -18,9 +18,9 @@
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/fab"
             android:backgroundTint="@android:color/transparent"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:src="@drawable/car_clear_button_design"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/add_icon"
             app:fabSize="normal"
             app:layout_anchor="@id/rcvCar"
             app:layout_anchorGravity="bottom|right|end"
