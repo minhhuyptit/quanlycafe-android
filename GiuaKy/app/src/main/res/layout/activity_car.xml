@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#444444"
     xmlns:tools="http://schemas.android.com/tools">
 
     <android.support.design.widget.CoordinatorLayout
@@ -14,11 +15,12 @@
             android:layout_height="match_parent"
             tools:listitem="@layout/car_item" />
 
-        <advance_control.MovableFloatingActionButton
+        <android.support.design.widget.FloatingActionButton
             android:id="@+id/fab"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@drawable/fab_icon"
+            android:backgroundTint="@android:color/transparent"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/add_icon"
             app:fabSize="normal"
             app:layout_anchor="@id/rcvCar"
             app:layout_anchorGravity="bottom|right|end"

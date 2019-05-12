@@ -11,31 +11,23 @@
         android:background="#CC3F3F"
         android:layout_weight="2"
         android:layout_width="match_parent"
-        android:text="Khách Hàng"
+        android:text="Quản Lý Category"
         android:textSize="30sp"
         android:textStyle="bold"
         android:textColor="#fff"
         android:gravity="center"
         android:layout_height="0dp" />
 
-    <SearchView
-        android:id="@+id/sv_khachhang"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="10dp"
-        android:layout_weight="1.5" />
-
-
     <android.support.design.widget.CoordinatorLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="16.5"
+        android:layout_weight="17.5"
         android:orientation="horizontal"
         android:weightSum="10">
 
         <ListView
-            android:id="@+id/lv_khachhang"
+            android:id="@+id/lv_category"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -46,10 +38,10 @@
             android:backgroundTint="@android:color/transparent"
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:layout_margin="10dp"
+            android:layout_margin="15dp"
             android:src="@drawable/add_icon"
             app:fabSize="normal"
-            app:layout_anchor="@id/lv_khachhang"
+            app:layout_anchor="@id/lv_category"
             app:layout_anchorGravity="bottom|right|end" />
 
     </android.support.design.widget.CoordinatorLayout>

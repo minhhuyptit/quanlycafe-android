@@ -35,6 +35,7 @@ public class CarActivity extends Activity implements RecyclerViewCarAdapter.Call
     ActivityCarBinding binding;
     List<Car> cars = new ArrayList<>();
     DatabaseReference rootCar = MainActivity.root.child("cars");
+    String tenXe, xuatXu, maXe;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -100,9 +101,8 @@ public class CarActivity extends Activity implements RecyclerViewCarAdapter.Call
         final EditText txtTenXe = dialog.findViewById(R.id.txtTenXe);
         final EditText txtXuatXu = dialog.findViewById(R.id.txtXuatXu);
 
-        String type = "Thêm";
+        String type = "Thêm Siêu Xe";
         lblType.setText(type);
-        btnConfirm.setText(type);
 
         btnCancle.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -114,11 +114,18 @@ public class CarActivity extends Activity implements RecyclerViewCarAdapter.Call
         btnConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                tenXe = txtTenXe.getText().toString();
+                xuatXu = txtXuatXu.getText().toString();
+                maXe = txtMAXE.getText().toString();
+                if(tenXe.equals("") || xuatXu.equals("") || maXe.equals("")){
+                    Toast.makeText(CarActivity.this, "Bạn chưa nhập đủ thông tin", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 if (findCar(txtMAXE.getText().toString()) == null) {
                     Car car = new Car();
-                    car.TENXE = txtTenXe.getText().toString();
-                    car.XUATXU = txtXuatXu.getText().toString();
-                    car.MAXE = txtMAXE.getText().toString();
+                    car.TENXE = tenXe;
+                    car.XUATXU = xuatXu;
+                    car.MAXE = maXe;
 //                    cars.add(car);
                     rootCar.child(car.MAXE).setValue(car);
                     initRecyclerView();
@@ -174,9 +181,8 @@ public class CarActivity extends Activity implements RecyclerViewCarAdapter.Call
         final EditText txtTenXe = dialog.findViewById(R.id.txtTenXe);
         final EditText txtXuatXu = dialog.findViewById(R.id.txtXuatXu);
 
-        String type = "Sửa";
+        String type = "Sửa Siêu Xe";
         lblType.setText(type);
-        btnConfirm.setText(type);
         txtMAXE.setText(MAXE);
         txtTenXe.setText(findCar(MAXE).TENXE);
         txtXuatXu.setText(findCar(MAXE).XUATXU);

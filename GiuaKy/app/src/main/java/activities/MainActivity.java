@@ -11,6 +11,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import xyz.khang.quanlythuexedulich.R;
+import xyz.khang.quanlythuexedulich.activity_contracts;
 import xyz.khang.quanlythuexedulich.activity_list_car;
 import xyz.khang.quanlythuexedulich.databinding.ActivityMainBinding;
 
@@ -55,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void onContractClick(){
         Toast.makeText(getApplicationContext(),"Contract",Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(MainActivity.this, activity_list_car.class);
+        Intent intent = new Intent(MainActivity.this, activity_contracts.class);
         startActivity(intent);
     }
 }
