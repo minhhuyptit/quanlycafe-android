@@ -29,39 +29,39 @@ public class CommonAPI implements Callback {
     }
 
     public void attempt_login(final String username, final String password, final Context context) {
-        RequestQueue requestQueue = Volley.newRequestQueue(context);
-        String url = "http://" + Huy_ip + "/quanlycafe/public/api/login";
-        StringRequest requestString = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                //Toast.makeText(context, response, Toast.LENGTH_SHORT).show();
-                callback.onResponse(response);
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                callback.onResponse(error.getMessage());
-            }
-        }) {
-            protected Map<String, String> getParams() {
-                Map<String, String> MyData = new HashMap<>();
-                MyData.put("username", username);
-                MyData.put("password", password);
-                return MyData;
-            }
-        };
-        requestQueue.add(requestString);
+//        RequestQueue requestQueue = Volley.newRequestQueue(context);
+//        String url = "http://" + Huy_ip + "/quanlycafe/public/api/login";
+//        StringRequest requestString = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+//            @Override
+//            public void onResponse(String response) {
+//                //Toast.makeText(context, response, Toast.LENGTH_SHORT).show();
+//                callback.onResponse(response);
+//            }
+//        }, new Response.ErrorListener() {
+//            @Override
+//            public void onErrorResponse(VolleyError error) {
+//                callback.onResponse(error.getMessage());
+//            }
+//        }) {
+//            protected Map<String, String> getParams() {
+//                Map<String, String> MyData = new HashMap<>();
+//                MyData.put("username", username);
+//                MyData.put("password", password);
+//                return MyData;
+//            }
+//        };
+//        requestQueue.add(requestString);
 
-//        String fake_result = "{\n" +
-//                "    \"id\": 1,\n" +
-//                "    \"username\": \"admin1\",\n" +
-//                "    \"fullname\": \"Nguyễn Hà Minh Huy\",\n" +
-//                "    \"phone\": \"0523939339\",\n" +
-//                "    \"image\": \"image_1.png\",\n" +
-//                "    \"salary\": 15000000,\n" +
-//                "    \"access_level\": 1\n" +
-//                "}";
-//        callback.onResponse(fake_result);
+        String fake_result = "{\n" +
+                "    \"id\": 1,\n" +
+                "    \"username\": \"admin1\",\n" +
+                "    \"fullname\": \"Nguyễn Hà Minh Huy\",\n" +
+                "    \"phone\": \"0523939339\",\n" +
+                "    \"image\": \"image_1.png\",\n" +
+                "    \"salary\": 15000000,\n" +
+                "    \"access_level\": 1\n" +
+                "}";
+        callback.onResponse(fake_result);
     }
 
     public void get_area(final Context context) {
@@ -231,5 +231,50 @@ public class CommonAPI implements Callback {
 //                "    }\n" +
 //                "]";
 //        callback.onResponse(fake_result);
+    }
+
+    public void get_table_kitchen(final Context context){
+//        RequestQueue requestQueue = Volley.newRequestQueue(context);
+//        String url = "http://" + Huy_ip + "/quanlycafe/public/api/area";
+//        StringRequest requestString = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+//            @Override
+//            public void onResponse(String response) {
+//                callback.onResponse(response);
+//            }
+//        }, new Response.ErrorListener() {
+//            @Override
+//            public void onErrorResponse(VolleyError error) {
+//                callback.onResponse(error.getMessage());
+//            }
+//        }) {
+//            protected Map<String, String> getParams() {
+//                return new HashMap<>();
+//            }
+//        };
+//        requestQueue.add(requestString);
+
+        String fake_result = "[\n" +
+                "    {\n" +
+                "        \"id\": 12,\n" +
+                "        \"time_in\": \"2019-05-09 11:15:55\",\n" +
+                "        \"time_out\": \"2019-05-09 11:15:55\",\n" +
+                "        \"status\": 0,\n" +
+                "        \"total\": 769000,\n" +
+                "        \"id_user_in\": 2,\n" +
+                "        \"id_user_out\": 1,\n" +
+                "        \"id_table\": 12\n" +
+                "    },\n" +
+                "    {\n" +
+                "        \"id\": 11,\n" +
+                "        \"time_in\": \"2019-05-09 11:25:55\",\n" +
+                "        \"time_out\": \"2019-02-18 10:14:35\",\n" +
+                "        \"status\": 0,\n" +
+                "        \"total\": 409000,\n" +
+                "        \"id_user_in\": 3,\n" +
+                "        \"id_user_out\": 2,\n" +
+                "        \"id_table\": 11\n" +
+                "    }\n" +
+                "]";
+        callback.onResponse(fake_result);
     }
 }

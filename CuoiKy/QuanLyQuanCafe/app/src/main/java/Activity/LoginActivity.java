@@ -54,7 +54,7 @@ public class LoginActivity extends AppCompatActivity implements CommonAPI.Callba
 
         if(flag_login_success){
             try {
-                Intent intent = new Intent(this, AreaActivity.class);
+                Intent intent = new Intent(this, FuncActivity.class);
                 startActivity(intent);
             } catch (Exception e) {
                 Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();

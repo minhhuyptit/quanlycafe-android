@@ -33,6 +33,13 @@
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
+        <activity android:name="Activity.FuncActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="Activity.TableKitchenActivity" />
+        <activity android:name="Activity.OrderDetailActivity" />
     </application>
 
 </manifest>

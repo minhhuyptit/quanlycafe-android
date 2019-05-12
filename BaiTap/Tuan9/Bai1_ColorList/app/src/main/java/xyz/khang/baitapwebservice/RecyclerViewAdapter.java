@@ -45,6 +45,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter {
         assert binding != null;
 
         int color = Color.parseColor(formatValue(objectList.get(i).getValue()));
+
         int textColor = Color.rgb(255-Color.red(color),
                 255-Color.green(color),
                 255-Color.blue(color));
