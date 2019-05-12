@@ -12,6 +12,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
+        <activity android:name="Activity.AreaAdminActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category" />
+            </intent-filter>
+        </activity>
         <activity android:name="Activity.CategoryAdminActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

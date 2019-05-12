@@ -1,6 +1,8 @@
 package Api;
 
 import android.content.Context;
+import android.util.Log;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -15,7 +17,7 @@ import java.util.Map;
 import javax.security.auth.callback.Callback;
 
 public class CommonAPI implements Callback {
-    public static String Huy_ip = "192.168.1.5:7777";
+    public static String Huy_ip = "192.168.1.12:7777";
     public static String Network_error = "Connection fail";
 
     private Callback callback;
@@ -67,6 +69,7 @@ public class CommonAPI implements Callback {
     public void get_area(final Context context) {
         RequestQueue requestQueue = Volley.newRequestQueue(context);
         String url = "http://" + Huy_ip + "/quanlycafe/public/api/area";
+        Log.d("IP", url);
         StringRequest requestString = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {

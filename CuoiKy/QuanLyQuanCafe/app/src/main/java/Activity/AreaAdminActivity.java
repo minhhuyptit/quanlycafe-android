@@ -5,7 +5,6 @@ import android.content.DialogInterface;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
@@ -30,33 +29,29 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-import Adapter.CategoryAdminAdapter;
-import Adapter.CategoryRecyclerViewAdapter;
+import Adapter.AreaAdminAdapter;
 import Api.CommonAPI;
-import Api.MenuAPI;
-import Classes.Category;
-import Classes.Table;
+import Classes.Area;
 import advance_control.MovableFloatingActionButton;
 import xyz.khang.quanlyquancafe.R;
 
-public class CategoryAdminActivity extends AppCompatActivity implements MenuAPI.Callback{
+public class AreaAdminActivity extends AppCompatActivity implements CommonAPI.Callback{
 
-    ListView lv_category;
-    MovableFloatingActionButton fab;
-    CategoryAdminAdapter adapter;
-    ArrayList<Category> listCategory;
-    MenuAPI api;
+    ListView lv_area;
+    MovableFloatingActionButton fab1;
+    AreaAdminAdapter adapter;
+    ArrayList<Area> listArea;
     int position = 0;
+    boolean isTrue = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_category_admin);
+        setContentView(R.layout.activity_area_admin);
         mapping();
-        listCategory = new ArrayList<>();
-        api = new MenuAPI(this, getApplicationContext());
-        api.get_category();
-        lv_category.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+        listArea = new ArrayList<>();
+        new CommonAPI(this).get_area(getApplicationContext());
+        lv_area.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
                 final CharSequence[] items = {"Delete" };
@@ -66,13 +61,13 @@ public class CategoryAdminActivity extends AppCompatActivity implements MenuAPI.
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         try {
-                            AlertDialog alertDialog = new AlertDialog.Builder(CategoryAdminActivity.this).create();
+                            AlertDialog alertDialog = new AlertDialog.Builder(AreaAdminActivity.this).create();
                             alertDialog.setTitle("Confirm delete");
                             alertDialog.setMessage("Are you sure?");
                             alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "Delete",
                                     new DialogInterface.OnClickListener() {
                                         public void onClick(DialogInterface dialog, int which) {
-                                            delete_category(listCategory.get(position).id);
+                                            delete_area(listArea.get(position).id);
                                         }
                                     });
                             alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Cancle",
@@ -92,10 +87,11 @@ public class CategoryAdminActivity extends AppCompatActivity implements MenuAPI.
                 return true;
             }
         });
-        lv_category.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+        lv_area.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                final Dialog dialog_2 = new Dialog(CategoryAdminActivity.this);
+                final Dialog dialog_2 = new Dialog(AreaAdminActivity.this);
                 dialog_2.requestWindowFeature(Window.FEATURE_NO_TITLE);
                 dialog_2.setCancelable(false);
                 dialog_2.setContentView(R.layout.add_edit_category_dialog);
@@ -107,9 +103,9 @@ public class CategoryAdminActivity extends AppCompatActivity implements MenuAPI.
                 final EditText edtName = dialog_2.findViewById(R.id.edtName);
                 final TextView tvTitle = dialog_2.findViewById(R.id.TitleCategory);
 
-                edtID.setText(listCategory.get(position).id);
-                edtName.setText(listCategory.get(position).name);
-                tvTitle.setText("Edit Category");
+                edtID.setText(String.valueOf(listArea.get(position).id));
+                edtName.setText(listArea.get(position).name);
+                tvTitle.setText("Edit Area");
                 edtID.setEnabled(false);
                 btnCancle.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -121,19 +117,19 @@ public class CategoryAdminActivity extends AppCompatActivity implements MenuAPI.
                 btnConfirm.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        String cate_id = listCategory.get(position).id;
-                        String cate_name = edtName.getText().toString();
-                        put_category(cate_id,cate_name, dialog_2);
+                        String area_id = String.valueOf(listArea.get(position).id);
+                        String area_name = edtName.getText().toString();
+                        put_area(area_id,area_name, dialog_2);
                     }
                 });
                 dialog_2.show();
             }
         });
 
-        fab.setOnClickListener(new View.OnClickListener() {
+        fab1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final Dialog dialog_1 = new Dialog(CategoryAdminActivity.this);
+                final Dialog dialog_1 = new Dialog(AreaAdminActivity.this);
                 dialog_1.requestWindowFeature(Window.FEATURE_NO_TITLE);
                 dialog_1.setCancelable(false);
                 dialog_1.setContentView(R.layout.add_edit_category_dialog);
@@ -144,7 +140,7 @@ public class CategoryAdminActivity extends AppCompatActivity implements MenuAPI.
                 final EditText edtName = dialog_1.findViewById(R.id.edtName);
                 final TextView tvTitle = dialog_1.findViewById(R.id.TitleCategory);
 
-                tvTitle.setText("Add Category");
+                tvTitle.setText("Add Area");
                 btnCancle.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -154,70 +150,37 @@ public class CategoryAdminActivity extends AppCompatActivity implements MenuAPI.
                 btnConfirm.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        String cate_id = edtID.getText().toString();
-                        String cate_name = edtName.getText().toString();
-                        add_category(cate_id,cate_name,dialog_1);
+                        String area_id = edtID.getText().toString();
+                        String area_name = edtName.getText().toString();
+                        add_area(area_id,area_name,dialog_1);
                     }
                 });
                 dialog_1.show();
             }
         });
     }
+
     private void mapping(){
-        lv_category = (ListView) findViewById(R.id.lv_category);
-        fab = (MovableFloatingActionButton) findViewById(R.id.fab);
+        lv_area = (ListView) findViewById(R.id.lv_area);
+        fab1 = (MovableFloatingActionButton) findViewById(R.id.fab1);
     }
 
-    @Override
-    public void onGetTableCartResponse(String response) {
-
-    }
-
-    @Override
-    public void onGetCategoryResponse(String response) {
-        try {
-            Gson gson = new Gson();
-            Type collectionType = new TypeToken<Collection<Category>>() {
-            }.getType();
-            listCategory = gson.fromJson(response, collectionType);
-            adapter = new CategoryAdminAdapter(this, R.layout.category_admin_item, listCategory);
-            lv_category.setAdapter(adapter);
-        } catch (Exception e) {
-            Toast.makeText(getApplicationContext(), CommonAPI.Network_error, Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    @Override
-    public void onGetProductResponse(String response) {
-
-    }
-
-    @Override
-    public void onPostOrder(String response) {
-
-    }
-
-    @Override
-    public void onPutCheck(String response) {
-
-    }
-
-    public void delete_category(final String cate_id){
+    public void delete_category(final String area_id){
         RequestQueue requestQueue = Volley.newRequestQueue(getBaseContext());
-        String url = "http://" + CommonAPI.Huy_ip + "/quanlycafe/public/api/category/" + cate_id;
+        String url = "http://" + CommonAPI.Huy_ip + "/quanlycafe/public/api/area/" + area_id;
         StringRequest requestString = new StringRequest(Request.Method.DELETE, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                if(response.equals("CATEGORY_NOT_FOUND")){
-                    Toast.makeText(CategoryAdminActivity.this, "Không tìm thấy ID Category", Toast.LENGTH_SHORT).show();
+                if(response.equals("AREA_NOT_FOUND")){
+                    Toast.makeText(AreaAdminActivity.this, "Không tìm thấy ID Area", Toast.LENGTH_SHORT).show();
                 }else if(response.equals("FK_EXIST_ANOTHER_TABLE")){
-                    Toast.makeText(CategoryAdminActivity.this, "Category đã được sử dụng ở bảng khác", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AreaAdminActivity.this, "Area đã được sử dụng ở bảng khác", Toast.LENGTH_SHORT).show();
                 }else if(response.equals("SUCCESS")){
-                    listCategory.remove(position);
+                    listArea.remove(position);
                     adapter.notifyDataSetChanged();
-                    Toast.makeText(CategoryAdminActivity.this, "Xóa thành công", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AreaAdminActivity.this, "Xóa thành công", Toast.LENGTH_SHORT).show();
                 }else{
-                    Toast.makeText(CategoryAdminActivity.this, "Xóa thất bại", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AreaAdminActivity.this, "Xóa thất bại", Toast.LENGTH_SHORT).show();
                 }
             }
         }, new Response.ErrorListener() {
@@ -228,30 +191,69 @@ public class CategoryAdminActivity extends AppCompatActivity implements MenuAPI.
         requestQueue.add(requestString);
     }
 
-    public void add_category(final String cate_id, final String cate_name, final Dialog dialog){
+    @Override
+    public void onResponse(String response){
+        try {
+            Gson gson = new Gson();
+            Type collectionType = new TypeToken<Collection<Area>>() {
+            }.getType();
+            listArea = gson.fromJson(response, collectionType);
+            adapter = new AreaAdminAdapter(this, R.layout.area_admin_item, listArea);
+            lv_area.setAdapter(adapter);
+        } catch (Exception e) {
+            Toast.makeText(getApplicationContext(), CommonAPI.Network_error, Toast.LENGTH_SHORT).show();
+        }
+    }
+    public void delete_area(final int cate_id){
         RequestQueue requestQueue = Volley.newRequestQueue(getBaseContext());
-        String url = "http://" + CommonAPI.Huy_ip + "/quanlycafe/public/api/category";
+        String url = "http://" + CommonAPI.Huy_ip + "/quanlycafe/public/api/area/" + cate_id;
+        StringRequest requestString = new StringRequest(Request.Method.DELETE, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                if(response.equals("CATEGORY_NOT_FOUND")){
+                    Toast.makeText(AreaAdminActivity.this, "Không tìm thấy ID Area", Toast.LENGTH_SHORT).show();
+                }else if(response.equals("FK_EXIST_ANOTHER_TABLE")){
+                    Toast.makeText(AreaAdminActivity.this, "Area đã được sử dụng ở bảng khác", Toast.LENGTH_SHORT).show();
+                }else if(response.equals("SUCCESS")){
+                    listArea.remove(position);
+                    adapter.notifyDataSetChanged();
+                    Toast.makeText(AreaAdminActivity.this, "Xóa thành công", Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(AreaAdminActivity.this, "Xóa thất bại", Toast.LENGTH_SHORT).show();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+            }
+        });
+        requestQueue.add(requestString);
+    }
+
+    public void add_area(final String area_id, final String area_name, final Dialog dialog){
+        RequestQueue requestQueue = Volley.newRequestQueue(getBaseContext());
+        String url = "http://" + CommonAPI.Huy_ip + "/quanlycafe/public/api/area";
         StringRequest requestString = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 if(response.equals("EMPTY_ID")){
-                    Toast.makeText(CategoryAdminActivity.this, "ID Category không được rỗng", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AreaAdminActivity.this, "ID Area không được rỗng", Toast.LENGTH_SHORT).show();
                 }else if(response.equals("IDENTICAL_ID")){
-                    Toast.makeText(CategoryAdminActivity.this, "ID Category đã tồn tại", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AreaAdminActivity.this, "ID Area đã tồn tại", Toast.LENGTH_SHORT).show();
                 }else if(response.equals("EMPTY_NAME")){
-                    Toast.makeText(CategoryAdminActivity.this, "Tên Category không được rỗng", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AreaAdminActivity.this, "Tên Area không được rỗng", Toast.LENGTH_SHORT).show();
                 }else if(response.equals("IDENTICAL_NAME")){
-                    Toast.makeText(CategoryAdminActivity.this, "Tên Category đã tồn tại", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AreaAdminActivity.this, "Tên Area đã tồn tại", Toast.LENGTH_SHORT).show();
                 }else if(response.equals("SUCCESS")){
-                    Category category = new Category();
-                    category.id = cate_id;
-                    category.name = cate_name;
-                    listCategory.add(category);
+                    Area area = new Area();
+                    area.id = Integer.parseInt(area_id);
+                    area.name = area_name;
+                    listArea.add(area);
                     adapter.notifyDataSetChanged();
-                    Toast.makeText(CategoryAdminActivity.this, "Thêm thành công", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AreaAdminActivity.this, "Thêm thành công", Toast.LENGTH_SHORT).show();
                     dialog.dismiss();
                 }else {
-                    Toast.makeText(CategoryAdminActivity.this, "Thêm thất bại", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AreaAdminActivity.this, "Thêm thất bại", Toast.LENGTH_SHORT).show();
                     dialog.dismiss();
                 }
             }
@@ -263,33 +265,33 @@ public class CategoryAdminActivity extends AppCompatActivity implements MenuAPI.
         }) {
             protected Map<String, String> getParams() {
                 HashMap<String, String> params = new HashMap<>();
-                params.put("id", cate_id);
-                params.put("name", cate_name);
+                params.put("id", area_id);
+                params.put("name", area_name);
                 return params;
             }
         };
         requestQueue.add(requestString);
     }
 
-    public void put_category(final String cate_id, final String cate_name, final Dialog dialog){
+    public void put_area(final String area_id, final String area_name, final Dialog dialog){
         RequestQueue requestQueue = Volley.newRequestQueue(getBaseContext());
-        String url = "http://" + CommonAPI.Huy_ip + "/quanlycafe/public/api/category/" + cate_id;
+        String url = "http://" + CommonAPI.Huy_ip + "/quanlycafe/public/api/area/" + area_id;
         StringRequest requestString = new StringRequest(Request.Method.PUT, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 if(response.equals("EMPTY_NAME")){
-                    Toast.makeText(CategoryAdminActivity.this, "Tên Category không được rỗng", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AreaAdminActivity.this, "Tên Area không được rỗng", Toast.LENGTH_SHORT).show();
                 }else if(response.equals("IDENTICAL_NAME")){
-                    Toast.makeText(CategoryAdminActivity.this, "Tên Category đã tồn tại", Toast.LENGTH_SHORT).show();
-                }else if(response.equals("CATEGORY_NOT_FOUND")){
-                    Toast.makeText(CategoryAdminActivity.this, "Không tìm thấy ID Category", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AreaAdminActivity.this, "Tên Area đã tồn tại", Toast.LENGTH_SHORT).show();
+                }else if(response.equals("AREA_NOT_FOUND")){
+                    Toast.makeText(AreaAdminActivity.this, "Không tìm thấy ID Area", Toast.LENGTH_SHORT).show();
                 }else if(response.equals("SUCCESS")){
-                    listCategory.get(position).name = cate_name;
+                    listArea.get(position).name = area_name;
                     adapter.notifyDataSetChanged();
-                    Toast.makeText(CategoryAdminActivity.this, "Sửa thành công", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AreaAdminActivity.this, "Sửa thành công", Toast.LENGTH_SHORT).show();
                     dialog.dismiss();
                 }else {
-                    Toast.makeText(CategoryAdminActivity.this, "Sửa thất bại", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AreaAdminActivity.this, "Sửa thất bại", Toast.LENGTH_SHORT).show();
                     dialog.dismiss();
                 }
             }
@@ -301,7 +303,7 @@ public class CategoryAdminActivity extends AppCompatActivity implements MenuAPI.
         }) {
             protected Map<String, String> getParams() {
                 HashMap<String, String> params = new HashMap<>();
-                params.put("name", cate_name);
+                params.put("name", area_name);
                 return params;
             }
         };
