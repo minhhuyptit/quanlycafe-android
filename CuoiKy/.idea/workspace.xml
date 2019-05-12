@@ -1,13 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="8c19adf8-f709-4f2e-9bd1-2cacef198834" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/CuoiKy.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/CuoiKy.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/CuoiKy.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GiuaKy/app/src/main/res/drawable/58376671_446432389440905_1696513254446071808_n.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GiuaKy/app/src/main/res/drawable/58444289_2209783129241084_3199678471479492608_n.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GiuaKy/app/src/main/res/drawable/58444660_2322154651398877_8490583318314614784_n.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GiuaKy/app/src/main/res/drawable/58701289_416897385557233_5836333902079197184_n.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GiuaKy/app/src/main/res/drawable/58835361_2391445440917814_1535601084930719744_n.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GiuaKy/app/src/main/res/drawable/59285377_458379438266784_7204163037463314432_n.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GiuaKy/app/src/main/res/layout/activity_add_customer.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../GiuaKy/app/src/main/res/layout/activity_add_customer.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../GiuaKy/app/src/main/res/layout/activity_car.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../GiuaKy/app/src/main/res/layout/activity_car.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GiuaKy/app/src/main/res/layout/activity_car_contract.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../GiuaKy/app/src/main/res/layout/activity_car_contract.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GiuaKy/app/src/main/res/layout/activity_car_detail.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../GiuaKy/app/src/main/res/layout/activity_car_detail.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GiuaKy/app/src/main/res/layout/activity_contract_detail.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../GiuaKy/app/src/main/res/layout/activity_contract_detail.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GiuaKy/app/src/main/res/layout/activity_contracts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../GiuaKy/app/src/main/res/layout/activity_contracts.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GiuaKy/app/src/main/res/layout/activity_customer.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../GiuaKy/app/src/main/res/layout/activity_customer.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GiuaKy/app/src/main/res/layout/activity_list_car.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../GiuaKy/app/src/main/res/layout/activity_list_car.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GiuaKy/app/src/main/res/layout/car_contract_itemrow.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../GiuaKy/app/src/main/res/layout/car_contract_itemrow.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GiuaKy/app/src/main/res/layout/car_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../GiuaKy/app/src/main/res/layout/car_item.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GiuaKy/app/src/main/res/layout/car_itemrow.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../GiuaKy/app/src/main/res/layout/car_itemrow.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GiuaKy/app/src/main/res/layout/contract_itemrow.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../GiuaKy/app/src/main/res/layout/contract_itemrow.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GiuaKy/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../GiuaKy/app/src/main/res/values/colors.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,10 +40,10 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="10" />
-    <option name="y" value="20" />
-    <option name="width" value="1346" />
-    <option name="height" value="688" />
+    <option name="x" value="9" />
+    <option name="y" value="18" />
+    <option name="width" value="1347" />
+    <option name="height" value="690" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -33,6 +51,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -45,25 +64,29 @@
               <item name="CuoiKy" type="462c0819:PsiDirectoryNode" />
               <item name="QuanLyQuanCafe" type="462c0819:PsiDirectoryNode" />
             </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="AndroidView">
+        <subPane>
+          <expand>
             <path>
-              <item name="CuoiKy" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CuoiKy" type="462c0819:PsiDirectoryNode" />
-              <item name="QuanLyQuanCafe" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="CuoiKy" type="1abcf292:AndroidViewProjectNode" />
+              <item name="CuoiKy" type="e9137016:NonAndroidModuleNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
-      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/QuanLyQuanCafe" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -91,27 +114,29 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-7" y="-7" width="1295" height="735" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" weight="0.28441754" />
-      <window_info id="Structure" side_tool="true" />
-      <window_info id="Image Layers" />
-      <window_info id="Designer" />
-      <window_info id="Build Variants" side_tool="true" />
-      <window_info id="Resources Explorer" />
-      <window_info id="Capture Tool" />
-      <window_info id="Favorites" side_tool="true" />
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="TODO" />
-      <window_info anchor="bottom" id="Android Profiler" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Logcat" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info active="true" anchor="bottom" id="Event Log" side_tool="true" visible="true" weight="0.14402619" />
-      <window_info anchor="right" id="Device File Explorer" side_tool="true" />
-      <window_info anchor="right" id="Capture Analysis" />
-      <window_info anchor="right" id="Theme Preview" />
-      <window_info anchor="right" id="Palette&#9;" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.28421053" />
+      <window_info id="Structure" order="2" side_tool="true" />
+      <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info id="Build Variants" order="4" side_tool="true" />
+      <window_info id="Image Layers" order="5" />
+      <window_info id="Designer" order="6" />
+      <window_info id="Resources Explorer" order="7" />
+      <window_info id="Capture Tool" order="8" />
+      <window_info anchor="bottom" id="Run" />
+      <window_info anchor="bottom" id="Debug" />
+      <window_info anchor="bottom" id="Version Control" order="0" />
+      <window_info anchor="bottom" id="Logcat" order="1" sideWeight="0.3757085" visible="true" weight="0.3283582" />
+      <window_info anchor="bottom" id="TODO" order="2" />
+      <window_info anchor="bottom" id="Terminal" order="3" />
+      <window_info anchor="bottom" id="Event Log" order="4" sideWeight="0.6242915" side_tool="true" visible="true" weight="0.3283582" />
+      <window_info anchor="bottom" id="Android Profiler" order="5" show_stripe_button="false" />
+      <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" />
+      <window_info anchor="right" id="Capture Analysis" order="1" />
+      <window_info anchor="right" id="Theme Preview" order="2" />
+      <window_info anchor="right" id="Palette&#9;" order="3" />
     </layout>
   </component>
   <component name="editorHistoryManager">

@@ -11,46 +11,49 @@
             android:paddingRight="2dp"
             android:paddingTop="2dp"
             android:layout_marginTop="4dp"
-            android:src="@mipmap/ic_launcher_round"/>
+            android:src="@drawable/b"/>
 
-        <LinearLayout
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="106dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txtMaXe"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <TextView
-                android:id="@+id/txtMaXe"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:layout_weight="2"
-                android:layout_marginTop="4dp"
-                android:paddingLeft="2dp"
-                android:paddingRight="2dp"
-                android:paddingTop="2dp"
-                android:textSize="15sp"
-                android:text="Mã xe: "/>
-            <TextView
-                android:id="@+id/txtTenXe"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:layout_weight="2"
-                android:layout_marginTop="4dp"
-                android:paddingLeft="2dp"
-                android:paddingRight="2dp"
-                android:paddingTop="2dp"
-                android:textSize="15sp"
-                android:text="Tên xe: "/>
-            <TextView
-                android:id="@+id/txtXuatXu"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:layout_weight="2"
-                android:layout_marginTop="4dp"
-                android:paddingLeft="2dp"
-                android:paddingRight="2dp"
-                android:paddingTop="2dp"
-                android:textSize="15sp"
-                android:text="Xuất xứ: "/>
-        </LinearLayout>
+            android:layout_marginTop="4dp"
+            android:layout_weight="2"
+            android:paddingLeft="2dp"
+            android:paddingTop="2dp"
+            android:paddingRight="2dp"
+            android:text="Mã xe: "
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/txtTenXe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_weight="2"
+            android:paddingLeft="2dp"
+            android:paddingTop="2dp"
+            android:paddingRight="2dp"
+            android:text="Tên xe: "
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/txtXuatXu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_weight="2"
+            android:paddingLeft="2dp"
+            android:paddingTop="2dp"
+            android:paddingRight="2dp"
+            android:text="Xuất xứ: "
+            android:textSize="15sp" />
+    </LinearLayout>
 
         <CheckBox
             android:visibility="invisible"

@@ -6,7 +6,7 @@
     android:weightSum="20">
 
     <TextView
-        android:background="#FF1F1F"
+        android:background="@color/colorCam"
         android:textColor="#FFFFFF"
         android:gravity="center"
         android:textStyle="bold"
