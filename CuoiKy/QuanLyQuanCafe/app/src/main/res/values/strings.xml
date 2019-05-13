@@ -18,4 +18,12 @@
     <string name="kitchen">Bếp</string>
     <string name="waiter">Đặt món</string>
     <string name="done_order">Done order</string>
+    <string-array name="spinner_default">
+        <item name="value1">Gía trị 1</item>
+        <item name="value2">Gía trị 2</item>
+        <item name="value3">Gía trị 3</item>
+        <item name="value4">Gía trị 4</item>
+    </string-array>
+
+>>>>>>> feature-1.0/CuoiKy-CRUD-Product
 </resources>

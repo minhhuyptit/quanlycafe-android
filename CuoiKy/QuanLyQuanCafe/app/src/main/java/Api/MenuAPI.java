@@ -121,7 +121,6 @@ public class MenuAPI {
         StringRequest requestString = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                //Toast.makeText(context, response, Toast.LENGTH_SHORT).show();
                 callback.onGetProductResponse(response);
             }
         }, new Response.ErrorListener() {

@@ -19,4 +19,12 @@ public class Product {
     @SerializedName("id_category")
     @Expose
     public String idCategory;
+
+    public Product(String id, String name, double price, String description, String idCategory) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.description = description;
+        this.idCategory = idCategory;
+    }
 }
