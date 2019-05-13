@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -16,7 +17,6 @@ import xyz.khang.quanlyquancafe.databinding.ActivityLoginBinding;
 
 public class LoginActivity extends AppCompatActivity implements CommonAPI.Callback {
     ActivityLoginBinding binding;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +39,7 @@ public class LoginActivity extends AppCompatActivity implements CommonAPI.Callba
 
     @Override
     public void onResponse(String response) {
-
+        Log.e("e", "onResponse LoginActivity " + response);
         boolean flag_login_success = false;
         try {
             // parse json to a user
@@ -54,6 +54,7 @@ public class LoginActivity extends AppCompatActivity implements CommonAPI.Callba
 
         if(flag_login_success){
             try {
+                Toast.makeText(this, "Đăng nhập thành công!", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(this, AreaActivity.class);
                 startActivity(intent);
             } catch (Exception e) {

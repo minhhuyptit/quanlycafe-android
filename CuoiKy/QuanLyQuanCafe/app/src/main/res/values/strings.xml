@@ -14,4 +14,12 @@
     <string name="order">order</string>
     <string name="check">Check</string>
     <string name="coffee">Coffee</string>
+
+    <string-array name="spinner_default">
+        <item name="value1">Gía trị 1</item>
+        <item name="value2">Gía trị 2</item>
+        <item name="value3">Gía trị 3</item>
+        <item name="value4">Gía trị 4</item>
+    </string-array>
+
 </resources>

@@ -1,6 +1,7 @@
 package Api;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -14,6 +15,7 @@ import java.util.Map;
 
 import javax.security.auth.callback.Callback;
 
+import Classes.Product;
 public class CommonAPI implements Callback {
     static String Huy_ip = "192.168.43.196:7777";
     public static String Network_error = "Connection fail";
@@ -51,7 +53,6 @@ public class CommonAPI implements Callback {
             }
         };
         requestQueue.add(requestString);
-
 //        String fake_result = "{\n" +
 //                "    \"id\": 1,\n" +
 //                "    \"username\": \"admin1\",\n" +
@@ -70,7 +71,6 @@ public class CommonAPI implements Callback {
         StringRequest requestString = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                //Toast.makeText(context, response, Toast.LENGTH_SHORT).show();
                 callback.onResponse(response);
             }
         }, new Response.ErrorListener() {
@@ -84,7 +84,6 @@ public class CommonAPI implements Callback {
             }
         };
         requestQueue.add(requestString);
-
 //        String fake_result = "[\n" +
 //                "    {\n" +
 //                "        \"id\": 1,\n" +
@@ -231,5 +230,55 @@ public class CommonAPI implements Callback {
 //                "    }\n" +
 //                "]";
 //        callback.onResponse(fake_result);
+    }
+
+    public void remove_product (final Context context, String id){
+        RequestQueue requestQueue = Volley.newRequestQueue(context);
+        String url = "http://" + Huy_ip + "/quanlycafe/public/api/product/" + id;
+        StringRequest requestString = new StringRequest(Request.Method.DELETE, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Log.e("response", "remove_product " + response);
+                callback.onResponse(response);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                callback.onResponse(error.getMessage());
+            }
+        }) {
+            protected Map<String, String> getParams() {
+                return new HashMap<>();
+            }
+        };
+        requestQueue.add(requestString);
+    }
+
+    public void post_product (final Context context, final Product product){
+        RequestQueue requestQueue = Volley.newRequestQueue(context);
+        String url = "http://" + Huy_ip + "/quanlycafe/public/api/product";
+        StringRequest requestString = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Log.e("response", "post_product  " + response);
+                callback.onResponse(response);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                callback.onResponse(error.getMessage());
+            }
+        }) {
+            protected Map<String, String> getParams() {
+                HashMap<String, String> params = new HashMap<>();
+                params.put("id", product.id);
+                params.put("name", product.name);
+                params.put("price", String.valueOf(product.price));
+                params.put("description", product.description);
+                params.put("id_category", product.idCategory);
+                return params;
+            }
+        };
+        requestQueue.add(requestString);
     }
 }
