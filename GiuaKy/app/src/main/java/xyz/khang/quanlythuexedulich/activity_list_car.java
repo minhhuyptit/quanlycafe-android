@@ -216,7 +216,7 @@ public class activity_list_car extends AppCompatActivity {
                     }
                     //Cap nhat status cua hop dong
                     if(sumCars==0)      //hop dong het hieu luc
-                        rootContrats.child(snapshot.getKey()).child("status").setValue("false");
+                        rootContrats.child(snapshot.getKey()).child("status").setValue(false);
                 }
 
                 //cap nhat adapter xe

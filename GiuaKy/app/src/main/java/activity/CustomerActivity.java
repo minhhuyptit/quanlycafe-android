@@ -24,6 +24,7 @@ import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -83,6 +84,7 @@ public class CustomerActivity extends AppCompatActivity {
 
             }
         });
+        rootCustomers.addValueEventListener(eventListenerGetIDHD);
        lv_khachhang.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -108,6 +110,7 @@ public class CustomerActivity extends AppCompatActivity {
                 final EditText txtTenKH = dialog.findViewById(R.id.txtTenKH);
                 final EditText txtDiaChiKH = dialog.findViewById(R.id.txtDiaChiKH);
 
+                txtMaKH.setText(maKH);
                 btnCancle.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -313,4 +316,41 @@ public class CustomerActivity extends AppCompatActivity {
         lv_khachhang = (ListView) findViewById(R.id.lv_khachhang);
         fab = (MovableFloatingActionButton) findViewById(R.id.fab);
     }
+
+    String maKHAuto(String m){
+        String result = "KH";
+        int l=4;    //chieu dai chuoi tu dong 0001-9999
+        int number = Integer.parseInt(m.substring(2))+1;
+        int n = countNumber(number);
+        for(int i=0; i<l-n; i++) result+="0";
+        return result+number;
+    }
+    int countNumber(int n){
+        int dem =0;
+        while(n>0){
+            dem++;
+            n/=10;
+        }
+        return dem;
+    }
+    ValueEventListener eventListenerGetIDHD = new ValueEventListener() {
+        @Override
+        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+            if(dataSnapshot.getChildrenCount()==0) {
+                maKH="HD0001";
+                return;
+            }
+            for(DataSnapshot snapshot:dataSnapshot.getChildren()){
+                String maKHAuto = maKHAuto(snapshot.getKey());
+                maKH=maKHAuto;
+                Log.e("id", maKHAuto);
+            }
+
+        }
+
+        @Override
+        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+        }
+    };
 }
