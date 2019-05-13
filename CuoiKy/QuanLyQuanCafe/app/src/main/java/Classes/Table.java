@@ -21,4 +21,12 @@ public class Table {
     @SerializedName("id_area")
     @Expose
     public int idArea;
+
+    public Table(int id, String name, int seat, int status, int idArea) {
+        this.id = id;
+        this.name = name;
+        this.seat = seat;
+        this.status = status;
+        this.idArea = idArea;
+    }
 }

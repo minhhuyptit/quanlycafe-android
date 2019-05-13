@@ -45,7 +45,6 @@ public class TableActivity extends AppCompatActivity implements CommonAPI.Callba
 
     @Override
     public void onResponse(String response) {
-        //Toast.makeText(getApplicationContext(), response, Toast.LENGTH_SHORT).show();
 
         try {
             Gson gson = new Gson();

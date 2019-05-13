@@ -52,7 +52,7 @@ public class CustomerActivity extends AppCompatActivity {
         listKH = new ArrayList<>();
         //dumpData();
 
-        //createCustomerData();
+//        createCustomerData();
         adapter = new CustomerAdapter(this, R.layout.per_line_customer, listKH);
         lv_khachhang.setAdapter(adapter);
         rootCustomers.addChildEventListener(new ChildEventListener() {
@@ -272,7 +272,7 @@ public class CustomerActivity extends AppCompatActivity {
         listRootKH.add(customer_7);
         Customer customer_8 = new Customer("KH07", "Lưu Hoàng Trung", "Quảng Bình");
         listRootKH.add(customer_8);
-
+        
         //Sử dụng cho filter
 //        listKH = new ArrayList<>();
         listKH = (ArrayList<Customer>) listRootKH.clone();
@@ -282,23 +282,24 @@ public class CustomerActivity extends AppCompatActivity {
     void createCustomerData(){
         //listRootKH lấy dữ liệu từ database vê
         listRootKH = new ArrayList<>();
-        Customer customer_1 = new Customer("KH01", "Nguyễn Tấn Luông", "Bến Tre");
+        Customer customer_1 = new Customer("KH0001", "Nguyễn Tấn Luông", "Bến Tre");
         listRootKH.add(customer_1);
-        Customer customer_2 = new Customer("KH02", "Nguyễn Hà Minh Huy", "Long An");
+        Customer customer_2 = new Customer("KH0002", "Nguyễn Hà Minh Huy", "Long An");
         listRootKH.add(customer_2);
-        Customer customer_3 = new Customer("KH03", "Dương Đình Hạnh", "Đak Lak");
+        Customer customer_3 = new Customer("KH0003", "Dương Đình Hạnh", "Đak Lak");
         listRootKH.add(customer_3);
-        Customer customer_4 = new Customer("KH04", "Nguyễn Hữu Thắng", "Lâm Đồng");
+        Customer customer_4 = new Customer("KH0004", "Nguyễn Hữu Thắng", "Lâm Đồng");
         listRootKH.add(customer_4);
-        Customer customer_5 = new Customer("KH05", "Đặng Hoàng Khang", "TP.Hồ Chí Minh");
+        Customer customer_5 = new Customer("KH0005", "Đặng Hoàng Khang", "TP.Hồ Chí Minh");
         listRootKH.add(customer_5);
-        Customer customer_6 = new Customer("KH06", "Vũ Đức Tài", "Nghệ An");
+        Customer customer_6 = new Customer("KH0006", "Vũ Đức Tài", "Nghệ An");
         listRootKH.add(customer_6);
-        Customer customer_7 = new Customer("KH07", "Trần Hữu Thế", "Nghệ An");
+        Customer customer_7 = new Customer("KH0007", "Trần Hữu Thế", "Nghệ An");
         listRootKH.add(customer_7);
-        Customer customer_8 = new Customer("KH07", "Lưu Hoàng Trung", "Quảng Bình");
+        Customer customer_8 = new Customer("KH0008", "Lưu Hoàng Trung", "Quảng Bình");
         listRootKH.add(customer_8);
-        for(Customer c: listKH) rootCustomers.child(c.getMaKH()).setValue(c);
+        for(Customer c: listRootKH) rootCustomers.child(c.getMaKH()).setValue(c);
+        Toast.makeText(this, "Đã khởi tạo danh sách khách hàng", Toast.LENGTH_SHORT).show();
     }
     private boolean checkExistMaKH(String maKH){
         for (Customer customer: listRootKH) {
