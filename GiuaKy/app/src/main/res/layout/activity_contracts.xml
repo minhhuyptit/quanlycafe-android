@@ -13,14 +13,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-            <TextView
+
+            <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="DANH SÁCH HỢP ĐỒNG"
-                android:textAlignment="center"
-                android:background="#007505"
-                android:textColor="#FFFFFF"
-                android:textSize="20dp"/>
+                android:layout_height="109dp"
+                android:src="@drawable/e" />
             <ListView
                 android:id="@+id/listView"
                 android:layout_width="match_parent"

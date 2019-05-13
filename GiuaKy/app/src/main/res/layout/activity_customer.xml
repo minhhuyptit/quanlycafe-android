@@ -7,23 +7,18 @@
     android:background="#444444"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <TextView
-        android:background="#CC3F3F"
-        android:layout_weight="2"
+    <ImageView
         android:layout_width="match_parent"
-        android:text="Khách Hàng"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        android:textColor="#fff"
-        android:gravity="center"
-        android:layout_height="0dp" />
+        android:layout_height="109dp"
+        android:src="@drawable/g" />
 
     <SearchView
         android:id="@+id/sv_khachhang"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="10dp"
-        android:layout_weight="1.5" />
+        android:layout_marginTop="0dp"
+        android:layout_weight="1.5"
+        android:background="@color/colorTrang"/>
 
 
     <android.support.design.widget.CoordinatorLayout
