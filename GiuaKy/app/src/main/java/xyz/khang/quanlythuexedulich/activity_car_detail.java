@@ -42,6 +42,7 @@ public class activity_car_detail extends AppCompatActivity {
         edtSoNgay = findViewById(R.id.edtSoNgay);
         edtGiaXe = findViewById(R.id.edtGiaXe);
     }
+
     private void onOKClick(){
         String gia, ngay, maxe;
         gia = edtGiaXe.getText().toString();
@@ -58,9 +59,11 @@ public class activity_car_detail extends AppCompatActivity {
         Intent intent = new Intent(activity_car_detail.this, activity_list_car.class);
         startActivity(intent);
     }
+
     private void onCancelClick(){
         onBackPressed();
     }
+
     void KhoiTao(){
         Intent intent = getIntent();
         String id = intent.getStringExtra("id");
