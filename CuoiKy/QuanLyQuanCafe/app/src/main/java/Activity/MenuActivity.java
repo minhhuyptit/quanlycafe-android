@@ -101,6 +101,7 @@ public class MenuActivity extends AppCompatActivity
     @Override
     public void onGetProductResponse(String response) {
         try {
+//            Toast.makeText(getApplicationContext(),response,Toast.LENGTH_SHORT).show();
             Gson gson = new Gson();
             Type collectionType = new TypeToken<List<Product>>() {
             }.getType();
@@ -155,18 +156,25 @@ public class MenuActivity extends AppCompatActivity
     }
 
     private void setRVProduct(String category_id) {
-        RecyclerView recyclerView = binding.rvCategory;
-        GridLayoutManager manager = new GridLayoutManager(getApplicationContext(), 1);
-        recyclerView.setLayoutManager(manager);
-        //CategoryRecyclerViewAdapter adapter = new CategoryRecyclerViewAdapter(this, categories, products, 1);
-        List<Product> temp = new ArrayList<>();
-        for (Product p : products) {
-            if (p.idCategory.equals(category_id)) {
-                temp.add(p);
+        try {
+            Toast.makeText(getApplicationContext(),String.valueOf(products.size()),Toast.LENGTH_SHORT).show();
+            RecyclerView recyclerView = binding.rvCategory;
+            GridLayoutManager manager = new GridLayoutManager(getApplicationContext(), 1);
+            recyclerView.setLayoutManager(manager);
+            //CategoryRecyclerViewAdapter adapter = new CategoryRecyclerViewAdapter(this, categories, products, 1);
+            List<Product> temp = new ArrayList<>();
+            for (Product p : products) {
+                if (p.idCategory == null) continue;
+                if (p.idCategory.equals(category_id)) {
+                    temp.add(p);
+                }
             }
+            ProductRecyclerViewAdapter adapter = new ProductRecyclerViewAdapter(this, temp);
+            recyclerView.setAdapter(adapter);
+        } catch (Exception e) {
+            Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
         }
-        ProductRecyclerViewAdapter adapter = new ProductRecyclerViewAdapter(this, temp);
-        recyclerView.setAdapter(adapter);
+
     }
 
     private void setRVCategory() {

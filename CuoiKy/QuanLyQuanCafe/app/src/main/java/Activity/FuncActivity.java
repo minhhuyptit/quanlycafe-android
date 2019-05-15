@@ -34,5 +34,13 @@ public class FuncActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        binding.btnAdmin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), AdminActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }

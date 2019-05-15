@@ -49,9 +49,10 @@ public class TableKitchenRecyclerViewAdapter extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(@NonNull final RecyclerView.ViewHolder holder, final int position) {
+        try {
         final RecyclerviewItemTablekitchenBinding binding = DataBindingUtil.findBinding(holder.itemView);
         assert binding != null;
-        try {
+
             String line1 = "Id bàn:" + tableKitchens.get(position).idTable;
             binding.txtId.setText(line1);
 

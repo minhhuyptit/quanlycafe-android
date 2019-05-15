@@ -22,4 +22,7 @@ public class OrderDetail {
     @SerializedName("discount")
     @Expose
     public Integer discount;
+    @SerializedName("name_product")
+    @Expose
+    public String name_product;
 }
