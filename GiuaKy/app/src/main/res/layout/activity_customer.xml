@@ -18,7 +18,7 @@
         android:layout_height="0dp"
         android:layout_marginTop="0dp"
         android:layout_weight="1.5"
-        android:background="@color/colorTrang"/>
+        android:background="#FFEB3B"/>
 
 
     <android.support.design.widget.CoordinatorLayout

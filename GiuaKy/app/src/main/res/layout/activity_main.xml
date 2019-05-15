@@ -5,19 +5,13 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/activity_main_background">
+        android:background="@drawable/main">
 
         <FrameLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center|top"
             android:layout_marginTop="100dp">
-
-            <ImageView
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                android:background="@mipmap/ic_launcher_round"
-                android:contentDescription="@string/logo" />
 
         </FrameLayout>
 
@@ -37,6 +31,7 @@
                 android:orientation="horizontal">
 
                 <Button
+                    android:textColor="#860000"
                     android:id="@+id/btnCustomer"
                     android:layout_width="150dp"
                     android:layout_height="150dp"
@@ -51,10 +46,11 @@
                     tools:ignore="ButtonStyle" />
 
                 <Button
+                    android:textColor="#860000"
                     android:id="@+id/btnContract"
                     android:layout_width="140dp"
                     android:layout_height="140dp"
-                    android:layout_margin="10dp"
+                    android:layout_marginRight="25dp"
                     android:background="@drawable/activity_main_button_shape"
                     android:rotation="-45"
                     android:text="@string/contract"
@@ -63,6 +59,7 @@
             </LinearLayout>
 
             <Button
+                android:textColor="#860000"
                 android:id="@+id/btnCar"
                 android:layout_width="120dp"
                 android:layout_height="120dp"
