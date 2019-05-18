@@ -68,4 +68,8 @@ public class OrderDetailActivity extends AppCompatActivity implements KitchenAPI
         Toast.makeText(getApplicationContext(), response, Toast.LENGTH_SHORT).show();
         this.finish();
     }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
 }

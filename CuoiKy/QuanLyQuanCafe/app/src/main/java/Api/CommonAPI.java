@@ -20,7 +20,6 @@ import Classes.Product;
 public class CommonAPI implements Callback {
     public static String Huy_ip = "192.168.1.6:7777";
     public static String Network_error = "Connection fail";
-
     private Callback callback;
 
     public interface Callback {
@@ -223,7 +222,6 @@ public class CommonAPI implements Callback {
 //                "]";
 //        callback.onResponse(fake_result);
     }
-
 
     public void get_table_kitchen(final Context context) {
         RequestQueue requestQueue = Volley.newRequestQueue(context);

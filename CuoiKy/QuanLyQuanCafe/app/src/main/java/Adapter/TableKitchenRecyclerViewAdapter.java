@@ -49,28 +49,24 @@ public class TableKitchenRecyclerViewAdapter extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(@NonNull final RecyclerView.ViewHolder holder, final int position) {
-        try {
         final RecyclerviewItemTablekitchenBinding binding = DataBindingUtil.findBinding(holder.itemView);
         assert binding != null;
 
-            String line1 = "Id bàn:" + tableKitchens.get(position).idTable;
-            binding.txtId.setText(line1);
+        String line1 = "Id bàn:" + tableKitchens.get(position).idTable;
+        binding.txtId.setText(line1);
 
-            String line2 = "Giờ vào: " + tableKitchens.get(position).timeIn;
-            binding.txtTimeIn.setText(line2);
+        String line2 = "Giờ vào: " + tableKitchens.get(position).timeIn;
+        binding.txtTimeIn.setText(line2);
 
-            String line3 = "Nhân viên order: " + tableKitchens.get(position).idUserIn;
-            binding.txtIdUser.setText(line3);
-            binding.btnSelectTable.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    callback.onSelectTable(tableKitchens.get(holder.getPosition()).id);
-                }
-            });
-        } catch (Exception e) {
-            Log.d("abcde", e.getMessage());
-        }
-
+        String line3 = "Nhân viên order: " + tableKitchens.get(position).idUserIn;
+        binding.txtIdUser.setText(line3);
+        binding.btnSelectTable.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.e("po", position+" " + tableKitchens.size());
+                callback.onSelectTable(tableKitchens.get(position).id);
+            }
+        });
     }
 
     @Override
