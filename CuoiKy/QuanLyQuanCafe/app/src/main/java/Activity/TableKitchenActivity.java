@@ -12,8 +12,10 @@ import android.util.Log;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Array;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
@@ -28,7 +30,6 @@ public class TableKitchenActivity extends AppCompatActivity implements CommonAPI
     CommonAPI api;
     List<TableKitchen> tableKitchenList;
     TableKitchenRecyclerViewAdapter adapter;
-    RecyclerView recyclerView;
     int size;
     Thread t1;
     boolean stopRunbale=false, exit=false;
@@ -43,7 +44,7 @@ public class TableKitchenActivity extends AppCompatActivity implements CommonAPI
     }
 
     void setEvent() {
-        recyclerView = binding.rvTable;
+        RecyclerView recyclerView = binding.rvTable;
         GridLayoutManager manager = new GridLayoutManager(getApplicationContext(), 1);
         recyclerView.setLayoutManager(manager);
         adapter = new TableKitchenRecyclerViewAdapter(this, tableKitchenList);
@@ -78,13 +79,14 @@ public class TableKitchenActivity extends AppCompatActivity implements CommonAPI
         Type collectionType = new TypeToken<Collection<TableKitchen>>() {
         }.getType();
         try {
-            tableKitchenList = gson.fromJson(response, collectionType);
+            List<TableKitchen> t = gson.fromJson(response, collectionType);
             //Kiem tra neu co su thay doi du lieu moi load lai man hinh
-            if (tableKitchenList.size() != size) {
+            if (t.size() != size) {
                 Log.e("i", tableKitchenList.size() + "");
                 size = tableKitchenList.size();
-//                adapter.notifyDataSetChanged();
-                setEvent();
+                tableKitchenList.clear();
+                tableKitchenList.addAll(t);
+                adapter.notifyDataSetChanged();
             }
         } catch (Exception e) {
             Log.e("Exception", e.getMessage());
