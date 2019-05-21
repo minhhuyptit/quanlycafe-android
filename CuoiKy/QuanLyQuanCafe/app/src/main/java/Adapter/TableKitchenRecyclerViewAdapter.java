@@ -19,7 +19,7 @@ public class TableKitchenRecyclerViewAdapter extends RecyclerView.Adapter {
     private Callback callback;
 
     public interface Callback {
-        void onSelectTable(int order_id);
+        void onSelectTable(int order_id, int table_id);
     }
 
     private List<TableKitchen> tableKitchens;
@@ -64,7 +64,7 @@ public class TableKitchenRecyclerViewAdapter extends RecyclerView.Adapter {
             @Override
             public void onClick(View view) {
                 Log.e("po", position+" " + tableKitchens.size());
-                callback.onSelectTable(tableKitchens.get(position).id);
+                callback.onSelectTable(tableKitchens.get(position).id, tableKitchens.get(position).idTable);
             }
         });
     }

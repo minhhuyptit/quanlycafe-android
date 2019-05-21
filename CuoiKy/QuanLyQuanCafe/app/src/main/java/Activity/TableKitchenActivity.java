@@ -3,12 +3,18 @@ package Activity;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ValueEventListener;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -26,6 +32,8 @@ import xyz.khang.quanlyquancafe.R;
 import xyz.khang.quanlyquancafe.databinding.ActivityTableKitchenBinding;
 
 public class TableKitchenActivity extends AppCompatActivity implements CommonAPI.Callback, TableKitchenRecyclerViewAdapter.Callback {
+    public static DatabaseReference rootKitchen = CommonAPI.root.child("notification").child("kitchen");
+
     ActivityTableKitchenBinding binding;
     CommonAPI api;
     List<TableKitchen> tableKitchenList;
@@ -41,6 +49,18 @@ public class TableKitchenActivity extends AppCompatActivity implements CommonAPI
         api = new CommonAPI(this);
         setEvent();
         api.get_table_kitchen(getApplicationContext());
+
+        rootKitchen.child("10").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Toast.makeText(TableKitchenActivity.this, dataSnapshot.getKey() +" "+ dataSnapshot.toString(), Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 
     void setEvent() {
@@ -98,9 +118,13 @@ public class TableKitchenActivity extends AppCompatActivity implements CommonAPI
     }
 
     @Override
-    public void onSelectTable(int order_id) {
+    public void onSelectTable(int order_id, int table_id) {
+
+        rootKitchen.child(String.valueOf(table_id)).setValue("begin");
+
         Intent intent = new Intent(getApplicationContext(), OrderDetailActivity.class);
         intent.putExtra("order_id", order_id);
+        intent.putExtra("table_id", table_id);
         startActivity(intent);
         stopRunbale=exit=true;
         Log.e("onSelectTable", "----------------");
@@ -120,4 +144,10 @@ public class TableKitchenActivity extends AppCompatActivity implements CommonAPI
         Log.e("onResume", "----------------");
         api.get_table_kitchen(getApplicationContext());
     }
+}
+class TableOrder{
+    String idTable;
+    String idUserOrder;
+    String timeOrder;
+    String status;
 }

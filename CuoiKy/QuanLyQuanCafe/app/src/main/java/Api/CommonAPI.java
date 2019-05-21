@@ -10,6 +10,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -18,7 +20,8 @@ import javax.security.auth.callback.Callback;
 
 import Classes.Product;
 public class CommonAPI implements Callback {
-    public static String Huy_ip = "192.168.1.6:7777";
+    public static DatabaseReference root = FirebaseDatabase.getInstance().getReference();
+    public static String Huy_ip = "192.168.1.76:7777";
     public static String Network_error = "Connection fail";
     private Callback callback;
 

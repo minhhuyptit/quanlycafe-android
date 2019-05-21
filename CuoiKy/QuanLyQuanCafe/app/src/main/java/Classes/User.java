@@ -27,5 +27,5 @@ public class User {
     public int accessLevel;
 
     public static int logged_id;
-
+    public static String logged_name;
 }

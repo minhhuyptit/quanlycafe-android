@@ -21,8 +21,7 @@ public class Cart {
         try {
             if(this.cartItem.get(product_id).quantity > 1){
                 this.cartItem.get(product_id).quantity -= 1;
-            }
-            if(this.cartItem.get(product_id).quantity == 1){
+            }else if(this.cartItem.get(product_id).quantity == 1){
                 this.cartItem.remove(product_id);
             }
         } catch (NullPointerException ignored) {

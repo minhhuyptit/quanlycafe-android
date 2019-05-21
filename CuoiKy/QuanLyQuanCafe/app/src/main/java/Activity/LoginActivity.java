@@ -47,6 +47,8 @@ public class LoginActivity extends AppCompatActivity implements CommonAPI.Callba
             User user = gson.fromJson(response, User.class);
             // save id;
             User.logged_id = user.id;
+            //save login name
+            User.logged_name = user.fullname;
             flag_login_success = true;
         } catch (Exception e) {
             Toast.makeText(getApplicationContext(), response, Toast.LENGTH_SHORT).show();

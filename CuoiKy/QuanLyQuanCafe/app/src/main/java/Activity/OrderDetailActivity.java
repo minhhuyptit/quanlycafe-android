@@ -26,7 +26,7 @@ import xyz.khang.quanlyquancafe.databinding.ActivityOrderDetailBinding;
 public class OrderDetailActivity extends AppCompatActivity implements KitchenAPI.Callback {
 
     ActivityOrderDetailBinding binding;
-    int bill_id;
+    int bill_id, table_id;
     KitchenAPI api;
 
     @Override
@@ -36,6 +36,7 @@ public class OrderDetailActivity extends AppCompatActivity implements KitchenAPI
 
         Intent intent = getIntent();
         bill_id = intent.getIntExtra("order_id", -1);
+        table_id = intent.getIntExtra("table_id",-1);
         Toast.makeText(getApplicationContext(), String.valueOf(bill_id), Toast.LENGTH_SHORT).show();
 
         api = new KitchenAPI(this, getApplicationContext());
@@ -44,6 +45,7 @@ public class OrderDetailActivity extends AppCompatActivity implements KitchenAPI
         binding.btnDoneOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                TableKitchenActivity.rootKitchen.child(String.valueOf(table_id)).setValue("end");
                 api.putDetailResponse(bill_id);
             }
         });
@@ -71,5 +73,6 @@ public class OrderDetailActivity extends AppCompatActivity implements KitchenAPI
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+        //Khi quay lai phai hoi. Ban da pha che xong ban nay chua, neu chua xong thi cap nhat lai trang thai = order
     }
 }

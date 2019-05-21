@@ -47,10 +47,11 @@ public class AreaActivity extends AppCompatActivity implements CommonAPI.Callbac
     }
 
     @Override
-    public void onSelectArea(int area_id) {
+    public void onSelectArea(int area_id, String area_name) {
         try{
             Intent intent = new Intent(this, TableActivity.class);
-            intent.putExtra("area_id", area_id);
+            Area.curent_id = area_id;
+            Area.curent_name = area_name;
             startActivity(intent);
         }
         catch (Exception e){

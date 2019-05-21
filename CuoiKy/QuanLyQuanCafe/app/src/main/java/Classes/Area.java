@@ -10,4 +10,6 @@ public class Area {
     @SerializedName("name")
     @Expose
     public String name;
+    public static int curent_id;
+    public static String curent_name;
 }

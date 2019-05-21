@@ -18,7 +18,7 @@ public class AreaRecyclerViewAdapter extends RecyclerView.Adapter{
     private Callback callback;
 
     public interface Callback {
-        void onSelectArea(int area_id);
+        void onSelectArea(int area_id, String area_name);
     }
 
     private List<Area> areas;
@@ -52,7 +52,7 @@ public class AreaRecyclerViewAdapter extends RecyclerView.Adapter{
         binding.btnSelectArea.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                callback.onSelectArea(areas.get(holder.getAdapterPosition()).id);
+                callback.onSelectArea(areas.get(holder.getAdapterPosition()).id, areas.get(holder.getAdapterPosition()).name);
             }
         });
     }
