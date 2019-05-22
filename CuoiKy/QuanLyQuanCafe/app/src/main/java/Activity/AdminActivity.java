@@ -46,5 +46,12 @@ public class AdminActivity extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), AdminProductActivity.class));
             }
         });
+
+        binding.btnEmployee.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), AdminUserActivity.class));
+            }
+        });
     }
 }

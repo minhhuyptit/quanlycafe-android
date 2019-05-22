@@ -21,7 +21,7 @@ import javax.security.auth.callback.Callback;
 import Classes.Product;
 public class CommonAPI implements Callback {
     public static DatabaseReference root = FirebaseDatabase.getInstance().getReference();
-    public static String Huy_ip = "192.168.1.76:7777";
+    public static String Huy_ip = "192.168.1.6:7777";
     public static String Network_error = "Connection fail";
     private Callback callback;
 
@@ -270,5 +270,47 @@ public class CommonAPI implements Callback {
 //                "    }\n" +
 //                "]";
 //        callback.onResponse(fake_result);
+    }
+
+    public void get_user(final Context context) {
+        RequestQueue requestQueue = Volley.newRequestQueue(context);
+        String url = "http://" + Huy_ip + "/quanlycafe/public/api/user";
+        StringRequest requestString = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                callback.onResponse(response);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                callback.onResponse(error.getMessage());
+            }
+        }) {
+            protected Map<String, String> getParams() {
+                return new HashMap<>();
+            }
+        };
+        requestQueue.add(requestString);
+    }
+
+    public void get_timeKeepingByUser(final Context context, int id_user) {
+        RequestQueue requestQueue = Volley.newRequestQueue(context);
+        String url = "http://" + Huy_ip + "/quanlycafe/public/api/statistic/timeKeepingByUser/" + String.valueOf(id_user);
+        StringRequest requestString = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                callback.onResponse(response);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                callback.onResponse(error.getMessage());
+            }
+        }) {
+            protected Map<String, String> getParams() {
+                return new HashMap<>();
+            }
+        };
+        requestQueue.add(requestString);
     }
 }
