@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.google.firebase.database.Query;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -29,6 +30,7 @@ import Adapter.CategoryRecyclerViewAdapter;
 import Adapter.ProductRecyclerViewAdapter;
 import Api.CommonAPI;
 import Api.MenuAPI;
+import Api.RootFirebase;
 import Classes.Area;
 import Classes.Cart;
 import Classes.Category;
@@ -47,6 +49,7 @@ public class MenuActivity extends AppCompatActivity
     List<Category> categories;
     List<Product> products;
     Cart cart;
+    Cart cartTemp;  //Chua ca cac mon da goi truoc do cong them voi cac mon vua goi them
     Cart cartMain;           //Chua san phan neu ban nay goi them mon
     boolean product_flag = false, newOrder_flag=false, firtOrder=true;
     @Override
@@ -76,7 +79,8 @@ public class MenuActivity extends AppCompatActivity
         binding.btnCheck.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                TableKitchenActivity.rootKitchen.child(String.valueOf(Table.current_id)).setValue("empty");
+//                Query query = RootFirebase.rootKitchen.child(RootFirebase.getDay()).orderByChild()
+//                .child().setValue("empty");
                 api.put_check(String.valueOf(User.logged_id),
                         String.valueOf(Table.current_id));
             }
@@ -94,6 +98,7 @@ public class MenuActivity extends AppCompatActivity
                 firtOrder=false;
                 Toast.makeText(this, "Bàn đã được order, gọi thêm nước", Toast.LENGTH_SHORT).show();
                 cartMain = gson.fromJson(gson.toJson(cart),Cart.class);
+                cartTemp = gson.fromJson(gson.toJson(cart),Cart.class);
             }
         } catch (Exception e) {
             cart = new Cart();
@@ -154,6 +159,7 @@ public class MenuActivity extends AppCompatActivity
             newOrder_flag=true;
         }
         cart.more(findByID(id));
+        if(!firtOrder) cartTemp.more(findByID(id));
         setRVCart();
     }
 
@@ -174,6 +180,7 @@ public class MenuActivity extends AppCompatActivity
             return;
         }
         cart.less(id);
+        if(!firtOrder) cartTemp.less(id);
         setRVCart();
     }
 
@@ -240,43 +247,64 @@ public class MenuActivity extends AppCompatActivity
     }
 
     private void order() {
-        //Neu order lan dau (firtOrder==true) thi thuc hien binh thuong
-        if(firtOrder==true){
-            ChickenCart chickenCart = new ChickenCart(Area.curent_name, User.logged_name, "begin", getNow());
-            Iterator<Map.Entry<String, Item>> iterator = cart.cartItem.entrySet().iterator();
-            while (iterator.hasNext()){
-                Map.Entry<String, Item> entry = iterator.next();
-                chickenCart.chickenProduct.put(entry.getValue().product.name, entry.getValue().quantity);
-            }
-            TableKitchenActivity.rootKitchen.child(String.valueOf(Table.current_id)).setValue(chickenCart);
-        }
+        //Neu khong phai order lan dau, ma khong co goi them mon nao thi dung lai
+        if(!firtOrder && cart.cartItem.size()==0) return;
+        Date date = new Date();
+        SimpleDateFormat formatTime = new SimpleDateFormat("HH:mm:ss");
+        SimpleDateFormat formatDate = new SimpleDateFormat("dd-MM-yyyy");
 
+        //Cap nhat cac mon vua them len firebase cho bep
+        //Note status:
+        //order: vua moi duoc order
+        //begin: bat dau co nguoi click vao => bat dau lam nuoc
+        //end: nuoc da lam xong => thong bao cho nhan vien
+        //empty: sau khi nhan vien da doc thong bao va nhan vao OK
+        ChickenCart chickenCart = new ChickenCart(String.valueOf(Table.current_name), Area.curent_name, User.logged_name, "order", formatTime.format(date));
+        Iterator<Map.Entry<String, Item>> iteratorCart = cart.cartItem.entrySet().iterator();
+        Map.Entry<String, Item> entryCart;
+        while (iteratorCart.hasNext()){
+            entryCart = iteratorCart.next();
+            chickenCart.chickenProduct.put(entryCart.getValue().product.name, entryCart.getValue().quantity);
+        }
+        RootFirebase.rootKitchen.child(formatDate.format(date)).push().setValue(chickenCart);
+
+        //Cap nhat vao database
         Gson gson = new Gson();
-        String cartJson = gson.toJson(cart);
+        String cartJson;
+        if(firtOrder){  //Neu order lan dau thi thuc hien binh thuong
+            cartJson = gson.toJson(cart);
+        }else{          // <> !firtOrder && cart.cartItem.size()!=0
+            cartJson = gson.toJson(cartTemp);   //Neu khong phai order lan dau thi cartTemp chua ca cu va moi
+        }
         api.post_order(String.valueOf(Table.current_id),
                 String.valueOf(User.logged_id),
                 cartJson);
-    }
-
-    String getNow(){
-        SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
-        return format.format(new Date()).toString();
+        this.finish();
     }
 }
 
 class ChickenCart{
+    String table;
     String area;
     String loginname;
     String status;
     String timein;
-    HashMap<String, Integer> chickenProduct;
+    HashMap<String, Integer> chickenProduct = new HashMap<>();
 
-    public ChickenCart(String area, String loginname, String status, String timein) {
+    public ChickenCart(String table, String area, String loginname, String status, String timein) {
+        this.table = table;
         this.area = area;
         this.loginname = loginname;
         this.status = status;
         this.timein = timein;
-        chickenProduct = new HashMap<>();
+    }
+
+    public String getTable() {
+        return table;
+    }
+
+    public void setTable(String table) {
+        this.table = table;
     }
 
     public String getArea() {
@@ -318,6 +346,5 @@ class ChickenCart{
     public void setChickenProduct(HashMap<String, Integer> chickenProduct) {
         this.chickenProduct = chickenProduct;
     }
-
 }
 

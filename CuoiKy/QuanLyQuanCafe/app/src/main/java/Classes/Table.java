@@ -6,6 +6,7 @@ import com.google.gson.annotations.SerializedName;
 public class Table {
 
     public static int current_id;
+    public static String current_name;
     @SerializedName("id")
     @Expose
     public int id;

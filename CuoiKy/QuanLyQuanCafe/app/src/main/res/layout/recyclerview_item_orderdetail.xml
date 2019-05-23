@@ -15,18 +15,20 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/txtId"
+                android:id="@+id/txtTenMon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
-                android:textSize="30sp" />
+                android:textSize="30sp"
+                android:text="Sinh toos"/>
 
             <TextView
-                android:id="@+id/txtQuantity"
+                android:id="@+id/txtSoLuong"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
-                android:textSize="30sp" />
+                android:textSize="30sp"
+                android:text="30"/>
 
         </LinearLayout>
 

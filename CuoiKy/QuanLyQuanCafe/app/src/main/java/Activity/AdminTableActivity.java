@@ -134,7 +134,7 @@ public class AdminTableActivity extends AppCompatActivity implements TableAPI.Ca
     }
 
     @Override
-    public void onSelectTable(final int table_id) {
+    public void onSelectTable(final int table_id, String table_name) {
         Toast.makeText(this, table_id + "", Toast.LENGTH_SHORT).show();
 
         final CharSequence[] items = {"Edit", "Delete" };

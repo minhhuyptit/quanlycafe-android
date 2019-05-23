@@ -20,7 +20,7 @@ public class TableRecyclerViewAdapter extends RecyclerView.Adapter implements Ca
     private Callback callback;
 
     public interface Callback {
-        void onSelectTable(int table_id);
+        void onSelectTable(int table_id, String table_name);
     }
 
     public TableRecyclerViewAdapter(List<Table> tables, Callback callback) {
@@ -56,7 +56,7 @@ public class TableRecyclerViewAdapter extends RecyclerView.Adapter implements Ca
             @Override
             public void onClick(View view) {
                 // chuyển menu thức ăn
-                callback.onSelectTable(tables.get(holder.getAdapterPosition()).id);
+                callback.onSelectTable(tables.get(holder.getAdapterPosition()).id, tables.get(holder.getAdapterPosition()).name);
             }
         });
     }

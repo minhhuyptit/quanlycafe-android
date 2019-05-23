@@ -20,7 +20,7 @@ import javax.security.auth.callback.Callback;
 
 import Classes.Product;
 public class CommonAPI implements Callback {
-    public static DatabaseReference root = FirebaseDatabase.getInstance().getReference();
+//    public static DatabaseReference root = FirebaseDatabase.getInstance().getReference();
     public static String Huy_ip = "192.168.1.76:7777";
     public static String Network_error = "Connection fail";
     private Callback callback;

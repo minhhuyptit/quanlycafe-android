@@ -14,50 +14,53 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 import Adapter.OrderDetailRecyclerViewAdapter;
 import Api.KitchenAPI;
+import Api.RootFirebase;
 import Classes.OrderDetail;
+import Classes.TableKitchen;
+import Classes.TableOrder;
 import xyz.khang.quanlyquancafe.R;
 import xyz.khang.quanlyquancafe.databinding.ActivityOrderDetailBinding;
 
-public class OrderDetailActivity extends AppCompatActivity implements KitchenAPI.Callback {
-
+public class OrderDetailActivity extends AppCompatActivity{
     ActivityOrderDetailBinding binding;
-    int bill_id, table_id;
-    KitchenAPI api;
+    int position;
+    List<OrderDetail> orderDetails = new ArrayList<>();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_order_detail);
-
         Intent intent = getIntent();
-        bill_id = intent.getIntExtra("order_id", -1);
-        table_id = intent.getIntExtra("table_id",-1);
-        Toast.makeText(getApplicationContext(), String.valueOf(bill_id), Toast.LENGTH_SHORT).show();
+        position = intent.getIntExtra("position", -1);
+        TableOrder tableOrder = TableKitchenActivity.tableOrders.get(position);
+        RootFirebase.rootTableKitchen.setValue("begin");
+        if(tableOrder.getChickenProduct()==null) return;
+        Iterator<Map.Entry<String, Integer>> iterator = tableOrder.getChickenProduct().entrySet().iterator();
+        while (iterator.hasNext()){
+            Map.Entry<String, Integer> entry = iterator.next();
+            orderDetails.add(new OrderDetail(entry.getValue(), entry.getKey()));
+        }
 
-        api = new KitchenAPI(this, getApplicationContext());
-        api.getBillDetailResponse(bill_id);
+        setEvent();
 
         binding.btnDoneOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                TableKitchenActivity.rootKitchen.child(String.valueOf(table_id)).setValue("end");
-                api.putDetailResponse(bill_id);
+                RootFirebase.rootTableKitchen.setValue("end");
+                OrderDetailActivity.this.finish();
             }
         });
     }
 
-    @Override
-    public void onGetBillDetailResponse(String response) {
-        Gson gson = new Gson();
-        Type collectionType = new TypeToken<Collection<OrderDetail>>() {
-        }.getType();
-        List<OrderDetail> orderDetails = gson.fromJson(response, collectionType);
-
+    void setEvent(){
         RecyclerView recyclerView = binding.rvOrderDetail;
         GridLayoutManager manager = new GridLayoutManager(getApplicationContext(), 1);
         recyclerView.setLayoutManager(manager);
@@ -66,13 +69,9 @@ public class OrderDetailActivity extends AppCompatActivity implements KitchenAPI
     }
 
     @Override
-    public void onPutBillDetailResponse(String response) {
-        Toast.makeText(getApplicationContext(), response, Toast.LENGTH_SHORT).show();
-        this.finish();
-    }
-    @Override
     public void onBackPressed() {
         super.onBackPressed();
+        RootFirebase.rootTableKitchen.setValue("order");
         //Khi quay lai phai hoi. Ban da pha che xong ban nay chua, neu chua xong thi cap nhat lai trang thai = order
     }
 }

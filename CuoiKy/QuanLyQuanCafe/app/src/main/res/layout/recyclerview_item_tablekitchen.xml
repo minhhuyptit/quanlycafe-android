@@ -16,25 +16,35 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/txtId"
+                android:id="@+id/txtTable"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
-                android:textSize="30sp" />
+                android:textSize="30sp"
+                android:text="Ban: A4"/>
 
             <TextView
-                android:id="@+id/txtTimeIn"
+                android:id="@+id/txtArea"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:text="Khu: A"/>
 
             <TextView
-                android:id="@+id/txtIdUser"
+                android:id="@+id/txtTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:text="Time Order: 11:20:35"/>
+            <TextView
+                android:id="@+id/txtName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                android:text="NV Order: Nguyen Tan Luong"/>
         </LinearLayout>
 
     </FrameLayout>

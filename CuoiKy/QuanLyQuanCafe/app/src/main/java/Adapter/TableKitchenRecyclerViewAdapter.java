@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import java.util.List;
 
 import Classes.TableKitchen;
+import Classes.TableOrder;
 import xyz.khang.quanlyquancafe.R;
 import xyz.khang.quanlyquancafe.databinding.RecyclerviewItemTablekitchenBinding;
 
@@ -19,14 +20,14 @@ public class TableKitchenRecyclerViewAdapter extends RecyclerView.Adapter {
     private Callback callback;
 
     public interface Callback {
-        void onSelectTable(int order_id, int table_id);
+        void onSelectTable(int position);
     }
 
-    private List<TableKitchen> tableKitchens;
+    private List<TableOrder> tableOrders;
 
-    public TableKitchenRecyclerViewAdapter(Callback callback, List<TableKitchen> tableKitchens) {
+    public TableKitchenRecyclerViewAdapter(Callback callback, List<TableOrder> tableOrders) {
         this.callback = callback;
-        this.tableKitchens = tableKitchens;
+        this.tableOrders = tableOrders;
     }
 
 
@@ -52,25 +53,28 @@ public class TableKitchenRecyclerViewAdapter extends RecyclerView.Adapter {
         final RecyclerviewItemTablekitchenBinding binding = DataBindingUtil.findBinding(holder.itemView);
         assert binding != null;
 
-        String line1 = "Id bàn:" + tableKitchens.get(position).idTable;
-        binding.txtId.setText(line1);
+        String line1 = "Tên bàn:" + tableOrders.get(position).getTable();
+        binding.txtTable.setText(line1);
 
-        String line2 = "Giờ vào: " + tableKitchens.get(position).timeIn;
-        binding.txtTimeIn.setText(line2);
+        String line2 = "Khu vực: " + tableOrders.get(position).getArea();
+        binding.txtArea.setText(line2);
 
-        String line3 = "Nhân viên order: " + tableKitchens.get(position).idUserIn;
-        binding.txtIdUser.setText(line3);
+        String line3 = "Time Order: " + tableOrders.get(position).getTimein();
+        binding.txtTime.setText(line3);
+
+        String line4 = "Nhân viên order: " + tableOrders.get(position).getLoginname();
+        binding.txtName.setText(line4);
         binding.btnSelectTable.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.e("po", position+" " + tableKitchens.size());
-                callback.onSelectTable(tableKitchens.get(position).id, tableKitchens.get(position).idTable);
+                Log.e("po", position+" " + tableOrders.size());
+                callback.onSelectTable(position);
             }
         });
     }
 
     @Override
     public int getItemCount() {
-        return tableKitchens.size();
+        return tableOrders.size();
     }
 }
