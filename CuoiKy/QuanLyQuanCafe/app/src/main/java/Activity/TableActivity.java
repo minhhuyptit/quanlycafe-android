@@ -7,6 +7,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -102,10 +103,12 @@ public class TableActivity extends AppCompatActivity implements CommonAPI.Callba
             keyTemp = dataSnapshot.getKey();
             NotifyChickenCart chickenCart = dataSnapshot.getValue(NotifyChickenCart.class);
             Log.e("onChildAdded", ++index + " " + chickenCart.toString());
+
             //-----------------------
             Notification.Builder nb = null;
-            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-                nb = new Notification.Builder(getApplicationContext(), "second").setShowWhen(true)
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                nb = new Notification.Builder(getApplicationContext(), "second")
+                        .setShowWhen(true)
                         .setContentTitle(chickenCart.table)
                         .setContentText(chickenCart.toString())
                         .setSmallIcon(android.R.drawable.stat_notify_chat)

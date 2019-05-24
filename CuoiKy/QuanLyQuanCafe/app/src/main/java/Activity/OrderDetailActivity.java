@@ -33,24 +33,29 @@ public class OrderDetailActivity extends AppCompatActivity{
     ActivityOrderDetailBinding binding;
     int position;
     List<OrderDetail> orderDetails = new ArrayList<>();
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_order_detail);
         Intent intent = getIntent();
         position = intent.getIntExtra("position", -1);
-        TableOrder tableOrder = TableKitchenActivity.tableOrders.get(position);
-        RootFirebase.rootTableKitchen.setValue("begin");
+        TableOrder tableOrder = null;
+        try{
+            tableOrder = TableKitchenActivity.tableOrders.get(position);
+        } catch (Exception e){
+            Toast.makeText(this, "Bàn này đã được người khác chọn", Toast.LENGTH_SHORT).show();
+            this.finish();
+        }
+
         if(tableOrder.getChickenProduct()==null) return;
         Iterator<Map.Entry<String, Integer>> iterator = tableOrder.getChickenProduct().entrySet().iterator();
         while (iterator.hasNext()){
             Map.Entry<String, Integer> entry = iterator.next();
             orderDetails.add(new OrderDetail(entry.getValue(), entry.getKey()));
         }
-
         setEvent();
 
+        RootFirebase.rootTableKitchen.setValue("begin");
         binding.btnDoneOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
