@@ -33,6 +33,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Employee"/>
+            <Button
+                android:id="@+id/btnStaticstic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Statistic"/>
         </LinearLayout>
     </FrameLayout>
 </layout>
