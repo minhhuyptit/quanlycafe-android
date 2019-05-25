@@ -11,13 +11,12 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:background="#ffe1f0">
+            android:background="@color/colorCam">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
-                android:fontFamily="@font/dancing_script"
                 android:text="@string/area"
                 android:textSize="30sp" />
         </FrameLayout>
@@ -25,7 +24,7 @@
         <android.support.v7.widget.RecyclerView
             android:id="@+id/rvArea"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="10dp"
             android:layout_margin="5dp"
             android:layout_weight="1"
             tools:listitem="@layout/recycler_view_item_2" />

@@ -2,27 +2,47 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 <FrameLayout
     android:layout_height="match_parent"
-    android:layout_width="match_parent">
+    android:layout_width="match_parent"
+    android:background="@drawable/cafe">
+
     <LinearLayout
-        android:layout_gravity="center"
         android:layout_width="300dp"
-        android:layout_height="wrap_content"
+        android:layout_height="411dp"
+        android:layout_gravity="center"
         android:orientation="vertical">
+
         <Button
             android:id="@+id/btnDatMon"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/waiter"/>
+            android:layout_height="83dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/colorDo"
+            android:text="@string/waiter"
+            android:textColor="#ffff"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
         <Button
             android:id="@+id/btnBep"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/kitchen"/>
+            android:layout_height="83dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/colorDo"
+            android:text="@string/kitchen"
+            android:textColor="#ffff"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
         <Button
             android:id="@+id/btnAdmin"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/admin"/>
+            android:layout_height="83dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/colorDo"
+            android:text="@string/admin"
+            android:textColor="#ffff"
+            android:textSize="30sp"
+            android:textStyle="bold" />
     </LinearLayout>
 </FrameLayout>
 </layout>

@@ -162,7 +162,7 @@
             android:textSize="18sp"
             android:textColor="#FFFFFF"
             android:text="Tháng/Năm"
-            android:background="#002BA7"
+            android:background="#00A778"
             android:layout_height="match_parent" />
 
         <TextView
@@ -174,7 +174,7 @@
             android:textSize="18sp"
             android:textColor="#FFFFFF"
             android:text="Thời gian"
-            android:background="#002BA7"
+            android:background="#00A778"
             android:layout_height="match_parent" />
 
         <TextView
@@ -186,7 +186,7 @@
             android:textStyle="bold"
             android:textColor="#FFFFFF"
             android:text="Total salary"
-            android:background="#002BA7"
+            android:background="#00A778"
             android:layout_height="match_parent" />
 
     </LinearLayout>

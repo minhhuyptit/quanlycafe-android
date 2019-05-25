@@ -3,13 +3,15 @@
     <FrameLayout
         android:id="@+id/btnSelectArea"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@drawable/recyclerview_item_shape"
+        android:layout_height="80dp"
+        android:background="@color/colorXanh"
         android:layout_margin="5dp">
         <TextView
             android:id="@+id/txtAreaName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="#ffff"
+            android:textSize="20sp"
             android:layout_gravity="center"/>
     </FrameLayout>
 </layout>

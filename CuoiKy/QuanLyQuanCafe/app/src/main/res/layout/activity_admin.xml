@@ -2,37 +2,69 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
     <FrameLayout
         android:layout_height="match_parent"
-        android:layout_width="match_parent">
+        android:layout_width="match_parent"
+        android:background="@drawable/cafe2">
+
         <LinearLayout
-            android:layout_gravity="center"
             android:layout_width="300dp"
-            android:layout_height="wrap_content"
+            android:layout_height="462dp"
+            android:layout_gravity="center"
             android:orientation="vertical">
+
             <Button
                 android:id="@+id/btnArea"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Area"/>
+                android:layout_height="83dp"
+                android:text="Area"
+                android:textColor="#ffff"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:background="@color/colorDo"
+                />
+
             <Button
                 android:id="@+id/btnTable"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="table"/>
+                android:layout_height="83dp"
+                android:text="table"
+                android:textColor="#ffff"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:background="@color/colorDo"
+                android:layout_marginTop="10dp"/>
+
             <Button
                 android:id="@+id/btnCategory"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Category"/>
+                android:layout_height="83dp"
+                android:text="Category"
+                android:textColor="#ffff"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:background="@color/colorDo"
+                android:layout_marginTop="10dp"/>
+
             <Button
                 android:id="@+id/btnProduct"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Product"/>
+                android:layout_height="83dp"
+                android:text="Product"
+                android:textColor="#ffff"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:background="@color/colorDo"
+                android:layout_marginTop="10dp"/>
+
             <Button
                 android:id="@+id/btnEmployee"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Employee"/>
+                android:layout_height="83dp"
+                android:text="Employee"
+                android:textColor="#ffff"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:background="@color/colorDo"
+                android:layout_marginTop="10dp"/>
         </LinearLayout>
     </FrameLayout>
 </layout>

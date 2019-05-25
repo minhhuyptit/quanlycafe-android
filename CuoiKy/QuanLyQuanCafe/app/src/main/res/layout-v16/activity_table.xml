@@ -10,13 +10,12 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:background="#ffe1f0">
+            android:background="@color/colorCam">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
-                android:fontFamily="@font/dancing_script"
                 android:text="@string/table"
                 android:textSize="30sp" />
         </FrameLayout>

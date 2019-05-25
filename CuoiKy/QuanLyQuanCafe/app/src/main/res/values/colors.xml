@@ -4,4 +4,7 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="background_brown">#f2ebe5</color>
+    <color name="colorCam">#FFC107</color>
+    <color name="colorXanh">#15BB15</color>
+    <color name="colorDo">#F73907</color>
 </resources>

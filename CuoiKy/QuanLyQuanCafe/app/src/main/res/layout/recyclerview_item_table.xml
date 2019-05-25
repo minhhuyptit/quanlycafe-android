@@ -4,8 +4,8 @@
     <FrameLayout
         android:id="@+id/btnSelectArea"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@drawable/recyclerview_item_shape"
+        android:layout_height="80dp"
+        android:background="@drawable/recyclerview_item_table"
         android:layout_margin="5dp">
 
         <TextView

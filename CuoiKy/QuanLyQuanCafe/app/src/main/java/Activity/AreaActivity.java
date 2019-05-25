@@ -40,7 +40,7 @@ public class AreaActivity extends AppCompatActivity implements CommonAPI.Callbac
         List<Area> areas = gson.fromJson(response, collectionType);
 
         RecyclerView recyclerView = binding.rvArea;
-        GridLayoutManager manager = new GridLayoutManager(getApplicationContext(), 1);
+        GridLayoutManager manager = new GridLayoutManager(getApplicationContext(), 2);
         recyclerView.setLayoutManager(manager);
         AreaRecyclerViewAdapter adapter = new AreaRecyclerViewAdapter(areas, this);
         recyclerView.setAdapter(adapter);

@@ -10,7 +10,7 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:background="#ffe1f0">
+            android:background="@color/colorCam">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -33,6 +33,9 @@
             android:text="@string/done_order"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"/>
+            android:layout_margin="10dp"
+            android:background="@color/colorXanh"
+            android:textColor="#ffff"
+            android:textSize="20sp"/>
     </LinearLayout>
 </layout>
