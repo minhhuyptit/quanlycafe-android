@@ -81,7 +81,7 @@ public class RevenueChart extends AppCompatActivity implements StatisticAPI.Call
     void createChart(int year){
         tvTitle.setText("DOANH THU NĂM " + year);
         ArrayList<BarEntry> barEntries = new ArrayList<>();
-        for(int i=0; i<5; i++){
+        for(int i=0; i<12; i++){
             float val = (float) (Math.random())*100000000;
             val = Math.round(val/100000)/10;
             barEntries.add(new BarEntry(val, i));
@@ -89,7 +89,7 @@ public class RevenueChart extends AppCompatActivity implements StatisticAPI.Call
         BarDataSet barDataSet = new BarDataSet(barEntries, "Doanh thu năm " + year);
 
         ArrayList<String> theDates = new ArrayList<>();
-        for(int i=1; i<=5; i++)
+        for(int i=1; i<=12; i++)
             theDates.add("" + i);
 
         barDataSet.setValueTextSize(10f);
