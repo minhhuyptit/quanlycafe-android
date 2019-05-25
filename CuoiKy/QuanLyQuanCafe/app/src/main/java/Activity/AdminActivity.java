@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import xyz.khang.quanlyquancafe.R;
+import xyz.khang.quanlyquancafe.RevenueChart;
 import xyz.khang.quanlyquancafe.databinding.ActivityAdminBinding;
 
 public class AdminActivity extends AppCompatActivity {
@@ -51,6 +52,13 @@ public class AdminActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(), AdminUserActivity.class));
+            }
+        });
+
+        binding.btnStaticstic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), RevenueChart.class));
             }
         });
     }

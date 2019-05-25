@@ -58,6 +58,7 @@
             <Button
                 android:id="@+id/btnEmployee"
                 android:layout_width="match_parent"
+<<<<<<< HEAD
                 android:layout_height="83dp"
                 android:text="Employee"
                 android:textColor="#ffff"
@@ -65,6 +66,15 @@
                 android:textStyle="bold"
                 android:background="@color/colorDo"
                 android:layout_marginTop="10dp"/>
+=======
+                android:layout_height="wrap_content"
+                android:text="Employee"/>
+            <Button
+                android:id="@+id/btnStaticstic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Statistic"/>
+>>>>>>> feature-1.0/CuoiKy-DoanhThu
         </LinearLayout>
     </FrameLayout>
 </layout>
