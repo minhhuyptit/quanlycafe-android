@@ -79,8 +79,7 @@ public class MenuActivity extends AppCompatActivity
         binding.btnCheck.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Query query = RootFirebase.rootKitchen.child(RootFirebase.getDay()).orderByChild()
-//                .child().setValue("empty");
+//                Query query = RootFirebase.rootKitchen.child(RootFirebase.getDay()).orderByChild("table").equalTo(Table.current_name);
                 api.put_check(String.valueOf(User.logged_id),
                         String.valueOf(Table.current_id));
             }
@@ -163,33 +162,6 @@ public class MenuActivity extends AppCompatActivity
         setRVCart();
     }
 
-//    @Override
-//    public void onLessClick(String id) {
-////        //Bo neu dat nut tru o card
-////        if(cart.cartItem.get(id)==null) return;
-////        //Toast.makeText(getApplicationContext(),id,Toast.LENGTH_SHORT).show();
-////        if(!firtOrder && !newOrder_flag){
-////            Toast.makeText(this, "Không thể thay đổi các món đã order", Toast.LENGTH_SHORT).show();
-////            return;
-////        }
-////        if(cart.cartItem.size()==1 && cart.cartItem.get(id).quantity==1 && cartMain!=null){
-////            Gson gson = new Gson();
-////            cart=gson.fromJson(gson.toJson(cartMain), Cart.class);
-////            newOrder_flag=false;
-////            setRVCart();
-////            return;
-////        }
-////        cart.less(id);
-////        if(!firtOrder) cartTemp.less(id);
-////        setRVCart();
-//    }
-
-//    @Override
-//    public void onMoreCartClick(String product_id) {
-//        cart.more(findByID(product_id));
-//        setRVCart();
-//    }
-
     @Override
     public void onLessCartClick(String id) {
         //Bo neu dat nut tru o card
@@ -244,7 +216,8 @@ public class MenuActivity extends AppCompatActivity
 
     private void setRVCart() {
         String s = String.format("%,d", (int) (cart.sum()));
-        binding.txtOrdered.setText(s);
+        if(newOrder_flag) s = String.format("%,d", (int) (cartMain.sum())) + " + " + s;
+        binding.txtOrdered.setText("TỔNG: " + s);
         RecyclerView recyclerView = binding.rvCart;
         GridLayoutManager manager = new GridLayoutManager(getApplicationContext(), 1);
         recyclerView.setLayoutManager(manager);

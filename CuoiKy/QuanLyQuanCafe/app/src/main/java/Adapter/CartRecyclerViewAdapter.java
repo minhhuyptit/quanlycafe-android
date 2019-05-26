@@ -58,9 +58,8 @@ public class CartRecyclerViewAdapter extends RecyclerView.Adapter {
         binding.txtProductName.setText(i.product.name);
 
         String s = String.format("%,d", (int) (i.quantity * i.product.price));
-
         binding.txtPrice.setText(s);
-        binding.txtQuantity.setText(String.valueOf(i.quantity));
+        binding.txtQuantity.setText("x " + i.quantity);
         binding.btnLess.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

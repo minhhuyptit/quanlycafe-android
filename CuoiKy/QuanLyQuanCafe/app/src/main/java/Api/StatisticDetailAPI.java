@@ -15,7 +15,7 @@ import java.util.Map;
 
 import javax.security.auth.callback.Callback;
 
-public class StatisticAPI implements Callback {
+public class StatisticDetailAPI implements Callback {
     static String Huy_ip = CommonAPI.Huy_ip;
 
     private Callback callback;
@@ -24,17 +24,17 @@ public class StatisticAPI implements Callback {
         void getResponse(String response);
     }
 
-    public StatisticAPI(Callback callback) {
+    public StatisticDetailAPI(Callback callback) {
         this.callback = callback;
     }
 
-    public void get_statistic(final Context context) {
+    public void get_statistic(final Context context, int month, int year) {
         RequestQueue requestQueue = Volley.newRequestQueue(context);
-        String url = "http://" + Huy_ip + "/quanlycafe/public/api/statistic/sumRevenue";
+        String url = "http://" + Huy_ip + "/quanlycafe/public/api/statistic/sumRevenueByMonth/" + year + "/"+month;
         StringRequest requestString = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Log.e("e","on get_satistic " + response);
+                Log.e("e","on get_satistic_detail " + response);
                 callback.getResponse(response);
             }
         }, new Response.ErrorListener() {

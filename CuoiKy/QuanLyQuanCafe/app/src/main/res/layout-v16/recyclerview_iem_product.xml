@@ -9,11 +9,11 @@
         android:background="@drawable/line1_shap">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center|start"
-            android:layout_marginStart="20dp"
             android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:orientation="horizontal">
 
             <TextView
@@ -26,10 +26,11 @@
 
             <TextView
                 android:id="@+id/txtPrice"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#4B0202"
                 android:text="sdfdsf"
+                android:gravity="right"
                 android:textSize="20sp"/>
 
         </LinearLayout>
