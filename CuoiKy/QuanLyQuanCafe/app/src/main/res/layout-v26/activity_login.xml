@@ -27,8 +27,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:autofillHints="@string/user_name"
-                android:fontFamily="@font/dancing_script"
                 android:hint="@string/user_name"
+                android:textColor="#555252"
                 android:inputType="text"
                 android:maxLines="1" />
 
@@ -38,8 +38,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:autofillHints="@string/password"
-                android:fontFamily="@font/dancing_script"
                 android:hint="@string/password"
+                android:textColor="#555252"
                 android:inputType="textPassword"
                 android:maxLines="1" />
 
@@ -49,8 +49,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/button_shape"
-                android:fontFamily="@font/dancing_script"
+                android:background="#1DDDF7"
                 android:text="@string/login"
                 android:textColor="#fff"
                 android:textSize="20sp" />

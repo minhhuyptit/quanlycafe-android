@@ -22,7 +22,7 @@ public class CartRecyclerViewAdapter extends RecyclerView.Adapter {
     Callback callback;
 
     public interface Callback {
-        void onMoreCartClick(String product_id);
+//        void onMoreCartClick(String product_id);
 
         void onLessCartClick(String product_id);
     }
@@ -67,12 +67,7 @@ public class CartRecyclerViewAdapter extends RecyclerView.Adapter {
                 callback.onLessCartClick(i.product.id);
             }
         });
-        binding.btnMore.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                callback.onMoreCartClick(i.product.id);
-            }
-        });
+
     }
 
     @Override

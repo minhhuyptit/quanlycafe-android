@@ -105,29 +105,29 @@ public class AdminProductActivity extends AppCompatActivity implements ProductRe
         dialog.show();
     }
 
-    @Override
-    public void onLessClick(final String id) {
-        try {
-            AlertDialog alertDialog = new AlertDialog.Builder(this).create();
-            alertDialog.setTitle("Confirm delete");
-            alertDialog.setMessage("Are you sure?");
-            alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "Delete",
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            removeProduct(id);
-                        }
-                    });
-            alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Cancle",
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss();
-                        }
-                    });
-            alertDialog.show();
-        } catch (Exception e) {
-            Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
-        }
-    }
+//    @Override
+//    public void onLessClick(final String id) {
+//        try {
+//            AlertDialog alertDialog = new AlertDialog.Builder(this).create();
+//            alertDialog.setTitle("Confirm delete");
+//            alertDialog.setMessage("Are you sure?");
+//            alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "Delete",
+//                    new DialogInterface.OnClickListener() {
+//                        public void onClick(DialogInterface dialog, int which) {
+//                            removeProduct(id);
+//                        }
+//                    });
+//            alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Cancle",
+//                    new DialogInterface.OnClickListener() {
+//                        public void onClick(DialogInterface dialog, int which) {
+//                            dialog.dismiss();
+//                        }
+//                    });
+//            alertDialog.show();
+//        } catch (Exception e) {
+//            Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+//        }
+//    }
 
     @Override
     public void errorCategoryResponse(String response) {

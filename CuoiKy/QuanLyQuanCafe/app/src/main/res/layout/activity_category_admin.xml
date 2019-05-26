@@ -8,10 +8,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <TextView
-        android:background="#CC3F3F"
+        android:background="@color/colorHong"
         android:layout_weight="2"
         android:layout_width="match_parent"
-        android:text="Quản Lý Category"
+        android:text="QỦAN LÝ CATEGORY"
         android:textSize="30sp"
         android:textStyle="bold"
         android:textColor="#fff"

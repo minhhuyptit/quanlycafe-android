@@ -9,19 +9,26 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
+            android:background="@color/colorCam"
             android:orientation="horizontal">
+
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="190dp"
                 android:layout_height="wrap_content"
                 android:text="DANH MỤC"
-                android:textSize="20dp"/>
+                android:textColor="#000"
+                android:textSize="30dp"
+                android:textStyle="bold" />
+
             <Spinner
                 android:id="@+id/spinnerCategory"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
                 android:entries="@array/spinner_default"></Spinner>
         </LinearLayout>
         <android.support.design.widget.CoordinatorLayout

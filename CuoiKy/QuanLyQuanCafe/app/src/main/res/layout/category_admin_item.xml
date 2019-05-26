@@ -2,25 +2,24 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:paddingTop="25dp"
-    android:paddingBottom="10dp"
     android:layout_height="80dp">
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
+        android:background="@drawable/line3_shap"
         android:weightSum="20">
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="5" >
-            <ImageView
-                android:id="@+id/imgCategory"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@drawable/drink_1"/>
-        </LinearLayout>
+        <!--<LinearLayout-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_weight="5" >-->
+            <!--<ImageView-->
+                <!--android:id="@+id/imgCategory"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:src="@drawable/drink_1"/>-->
+        <!--</LinearLayout>-->
 
         <LinearLayout
             android:layout_width="0dp"
@@ -30,19 +29,17 @@
             android:weightSum="2">
 
             <TextView
-                android:textStyle="bold"
                 android:gravity="center|left"
                 android:paddingLeft="10dp"
                 android:layout_weight="1"
                 android:textSize="18sp"
-                android:textColor="#00FFE3"
+                android:textColor="#000"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:text="ID:" />
 
             <TextView
-                android:textStyle="bold"
-                android:textColor="#00FFE3"
+                android:textColor="#000"
                 android:gravity="center|left"
                 android:paddingLeft="10dp"
                 android:layout_weight="1"
@@ -57,11 +54,12 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="11"
+            android:layout_marginLeft="10dp"
             android:orientation="vertical"
             android:weightSum="2">
 
             <TextView
-                android:textColor="#FFFFFF"
+                android:textColor="@color/colorChu"
                 android:id="@+id/tvID"
                 android:gravity="center_vertical"
                 android:paddingLeft="5dp"
@@ -72,7 +70,7 @@
                 android:text="ID:" />
 
             <TextView
-                android:textColor="#FFFFFF"
+                android:textColor="@color/colorChu"
                 android:id="@+id/tvName"
                 android:gravity="center_vertical"
                 android:paddingLeft="5dp"

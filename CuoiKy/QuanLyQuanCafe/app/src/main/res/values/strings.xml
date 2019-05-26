@@ -4,12 +4,12 @@
     <string name="user_name">Username</string>
     <string name="login">Login</string>
     <string name="btnback">back</string>
-    <string name="area">Khu Vực</string>
+    <string name="area">KHU VỰC</string>
     <string name="select_area">Select</string>
-    <string name="table">Table</string>
-    <string name="category">Danh Mục</string>
+    <string name="table">TABLE</string>
+    <string name="category">DANH MỤC</string>
     <string name="trove">Trở Về</string>
-    <string name="ordered">Danh Sách Đã Chọn</string>
+    <string name="ordered">DANH SÁCH ĐÃ CHỌN</string>
     <string name="more">+</string>
     <string name="less">-</string>
     <string name="order">order</string>

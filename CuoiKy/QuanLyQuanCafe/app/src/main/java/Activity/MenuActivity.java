@@ -163,8 +163,35 @@ public class MenuActivity extends AppCompatActivity
         setRVCart();
     }
 
+//    @Override
+//    public void onLessClick(String id) {
+////        //Bo neu dat nut tru o card
+////        if(cart.cartItem.get(id)==null) return;
+////        //Toast.makeText(getApplicationContext(),id,Toast.LENGTH_SHORT).show();
+////        if(!firtOrder && !newOrder_flag){
+////            Toast.makeText(this, "Không thể thay đổi các món đã order", Toast.LENGTH_SHORT).show();
+////            return;
+////        }
+////        if(cart.cartItem.size()==1 && cart.cartItem.get(id).quantity==1 && cartMain!=null){
+////            Gson gson = new Gson();
+////            cart=gson.fromJson(gson.toJson(cartMain), Cart.class);
+////            newOrder_flag=false;
+////            setRVCart();
+////            return;
+////        }
+////        cart.less(id);
+////        if(!firtOrder) cartTemp.less(id);
+////        setRVCart();
+//    }
+
+//    @Override
+//    public void onMoreCartClick(String product_id) {
+//        cart.more(findByID(product_id));
+//        setRVCart();
+//    }
+
     @Override
-    public void onLessClick(String id) {
+    public void onLessCartClick(String id) {
         //Bo neu dat nut tru o card
         if(cart.cartItem.get(id)==null) return;
         //Toast.makeText(getApplicationContext(),id,Toast.LENGTH_SHORT).show();
@@ -181,18 +208,6 @@ public class MenuActivity extends AppCompatActivity
         }
         cart.less(id);
         if(!firtOrder) cartTemp.less(id);
-        setRVCart();
-    }
-
-    @Override
-    public void onMoreCartClick(String product_id) {
-        cart.more(findByID(product_id));
-        setRVCart();
-    }
-
-    @Override
-    public void onLessCartClick(String product_id) {
-        cart.less(product_id);
         setRVCart();
     }
 

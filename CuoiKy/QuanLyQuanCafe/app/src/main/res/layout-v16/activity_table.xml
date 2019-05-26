@@ -17,6 +17,8 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:text="@string/table"
+                android:textColor="#000"
+                android:textStyle="bold"
                 android:textSize="30sp" />
         </FrameLayout>
 

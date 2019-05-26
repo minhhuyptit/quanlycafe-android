@@ -19,8 +19,6 @@ public class ProductRecyclerViewAdapter extends RecyclerView.Adapter {
 
     public interface Callback {
         void onMoreClick(String id);
-
-        void onLessClick(String id);
     }
 
     public ProductRecyclerViewAdapter(Callback callback, List<Product> products) {
@@ -50,17 +48,11 @@ public class ProductRecyclerViewAdapter extends RecyclerView.Adapter {
         final Product p = products.get(position);
         binding.txtProductName.setText(p.name);
         binding.txtPrice.setText(String.valueOf(p.price));
+
         binding.btnMore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 callback.onMoreClick(p.id);
-            }
-        });
-
-        binding.btnLess.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                callback.onLessClick(p.id);
             }
         });
     }

@@ -8,6 +8,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -33,12 +35,15 @@ public class OrderDetailActivity extends AppCompatActivity{
     ActivityOrderDetailBinding binding;
     int position;
     List<OrderDetail> orderDetails = new ArrayList<>();
+    String table;
+    TextView tableName;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_order_detail);
         Intent intent = getIntent();
         position = intent.getIntExtra("position", -1);
+        tableName = findViewById(R.id.tableName);
         TableOrder tableOrder = null;
         try{
             tableOrder = TableKitchenActivity.tableOrders.get(position);
@@ -48,6 +53,7 @@ public class OrderDetailActivity extends AppCompatActivity{
         }
 
         if(tableOrder.getChickenProduct()==null) return;
+        tableName.setText(tableOrder.getTable());
         Iterator<Map.Entry<String, Integer>> iterator = tableOrder.getChickenProduct().entrySet().iterator();
         while (iterator.hasNext()){
             Map.Entry<String, Integer> entry = iterator.next();

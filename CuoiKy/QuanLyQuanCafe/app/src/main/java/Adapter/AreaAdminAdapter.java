@@ -44,7 +44,7 @@ public class AreaAdminAdapter extends BaseAdapter {
 
     private class ViewHolder{
         TextView tvIDArea, tvNameArea;
-        ImageView imgArea;
+//        ImageView imgArea;
     }
 
     @Override
@@ -59,7 +59,7 @@ public class AreaAdminAdapter extends BaseAdapter {
             //Ánh xạ view
             holder.tvIDArea = view.findViewById(R.id.tvIDArea);
             holder.tvNameArea = view.findViewById(R.id.tvNameArea);
-            holder.imgArea = view.findViewById(R.id.imgArea);
+//            holder.imgArea = view.findViewById(R.id.imgArea);
             view.setTag(holder);
         }else{
             holder = (AreaAdminAdapter.ViewHolder) view.getTag();
@@ -69,17 +69,17 @@ public class AreaAdminAdapter extends BaseAdapter {
         Area area = areaList.get(i);
         holder.tvIDArea.setText(String.valueOf(area.id));
         holder.tvNameArea.setText(area.name);
-        holder.imgArea.setImageResource(randomImage(i));
+//        holder.imgArea.setImageResource(randomImage(i));
         return view;
     }
 
-    private int randomImage(int i){
-        ArrayList<Integer> randImg = new ArrayList<>();
-        randImg.add(R.drawable.area_1);
-        randImg.add(R.drawable.area_2);
-        randImg.add(R.drawable.area_3);
-        randImg.add(R.drawable.area_4);
-        randImg.add(R.drawable.area_5);
-        return randImg.get(i);
-    }
+//    private int randomImage(int i){
+//        ArrayList<Integer> randImg = new ArrayList<>();
+//        randImg.add(R.drawable.area_1);
+//        randImg.add(R.drawable.area_2);
+//        randImg.add(R.drawable.area_3);
+//        randImg.add(R.drawable.area_4);
+//        randImg.add(R.drawable.area_5);
+//        return randImg.get(i);
+//    }
 }

@@ -43,7 +43,7 @@ public class CategoryAdminAdapter extends BaseAdapter {
 
     private class ViewHolder{
         TextView tvID, tvName;
-        ImageView imgCategory;
+//        ImageView imgCategory;
     }
 
     @Override
@@ -58,7 +58,7 @@ public class CategoryAdminAdapter extends BaseAdapter {
             //Ánh xạ view
             holder.tvID = view.findViewById(R.id.tvID);
             holder.tvName = view.findViewById(R.id.tvName);
-            holder.imgCategory = view.findViewById(R.id.imgCategory);
+//            holder.imgCategory = view.findViewById(R.id.imgCategory);
             view.setTag(holder);
         }else{
             holder = (ViewHolder) view.getTag();
@@ -68,20 +68,20 @@ public class CategoryAdminAdapter extends BaseAdapter {
         Category category = categoryList.get(i);
         holder.tvID.setText(category.id);
         holder.tvName.setText(category.name);
-        holder.imgCategory.setImageResource(randomImage());
+//        holder.imgCategory.setImageResource(randomImage());
         return view;
     }
 
-    private int randomImage(){
-        ArrayList<Integer> randImg = new ArrayList<>();
-        randImg.add(R.drawable.drink_1);
-        randImg.add(R.drawable.drink_2);
-        randImg.add(R.drawable.drink_3);
-        randImg.add(R.drawable.drink_4);
-        randImg.add(R.drawable.drink_5);
-        randImg.add(R.drawable.drink_6);
-        randImg.add(R.drawable.drink_7);
-        Collections.shuffle(randImg);
-        return randImg.get(0);
-    }
+//    private int randomImage(){
+//        ArrayList<Integer> randImg = new ArrayList<>();
+//        randImg.add(R.drawable.drink_1);
+//        randImg.add(R.drawable.drink_2);
+//        randImg.add(R.drawable.drink_3);
+//        randImg.add(R.drawable.drink_4);
+//        randImg.add(R.drawable.drink_5);
+//        randImg.add(R.drawable.drink_6);
+//        randImg.add(R.drawable.drink_7);
+//        Collections.shuffle(randImg);
+//        return randImg.get(0);
+//    }
 }

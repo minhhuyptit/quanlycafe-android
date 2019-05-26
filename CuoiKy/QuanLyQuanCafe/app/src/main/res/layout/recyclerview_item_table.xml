@@ -12,7 +12,8 @@
             android:id="@+id/txtAreaName"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
-            android:layout_gravity="center" />
+            android:layout_gravity="center"
+            android:textSize="20sp"/>
 
     </FrameLayout>
 </layout>

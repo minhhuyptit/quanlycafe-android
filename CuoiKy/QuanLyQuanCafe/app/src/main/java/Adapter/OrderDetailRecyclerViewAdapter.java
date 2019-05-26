@@ -40,9 +40,9 @@ public class OrderDetailRecyclerViewAdapter extends RecyclerView.Adapter {
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         final RecyclerviewItemOrderdetailBinding binding = DataBindingUtil.findBinding(holder.itemView);
         assert binding != null;
-        String name = "Tên món: " + orderDetails.get(position).name_product;
+        String name = orderDetails.get(position).name_product;
         binding.txtTenMon.setText(name);
-        String quantity = "Số lượng: "+orderDetails.get(position).quantity;
+        String quantity = " x "     +orderDetails.get(position).quantity;
         binding.txtSoLuong.setText(quantity);
     }
 

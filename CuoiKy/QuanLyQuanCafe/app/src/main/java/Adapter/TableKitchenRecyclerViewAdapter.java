@@ -53,16 +53,16 @@ public class TableKitchenRecyclerViewAdapter extends RecyclerView.Adapter {
         final RecyclerviewItemTablekitchenBinding binding = DataBindingUtil.findBinding(holder.itemView);
         assert binding != null;
 
-        String line1 = "Tên bàn:" + tableOrders.get(position).getTable();
+        String line1 = tableOrders.get(position).getTable();
         binding.txtTable.setText(line1);
 
-        String line2 = "Khu vực: " + tableOrders.get(position).getArea();
+        String line2 = tableOrders.get(position).getArea();
         binding.txtArea.setText(line2);
 
-        String line3 = "Time Order: " + tableOrders.get(position).getTimein();
+        String line3 = tableOrders.get(position).getTimein();
         binding.txtTime.setText(line3);
 
-        String line4 = "Nhân viên order: " + tableOrders.get(position).getLoginname();
+        String line4 = tableOrders.get(position).getLoginname();
         binding.txtName.setText(line4);
         binding.btnSelectTable.setOnClickListener(new View.OnClickListener() {
             @Override

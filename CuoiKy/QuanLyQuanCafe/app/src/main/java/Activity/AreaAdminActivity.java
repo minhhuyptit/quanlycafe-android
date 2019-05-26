@@ -152,7 +152,7 @@ public class AreaAdminActivity extends AppCompatActivity implements CommonAPI.Ca
                     public void onClick(View view) {
                         String area_id = edtID.getText().toString();
                         String area_name = edtName.getText().toString();
-                        add_area(area_id,area_name,dialog_1);
+                        add_area(area_id,area_name,dialog_1);  
                     }
                 });
                 dialog_1.show();
