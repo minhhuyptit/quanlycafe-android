@@ -16,6 +16,7 @@
             tools:ignore="UselessParent">
 
             <ImageView
+                android:id="@+id/imgLogo"
                 android:layout_width="300dp"
                 android:layout_height="250dp"
                 android:background="@drawable/coffee"
