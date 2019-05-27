@@ -118,15 +118,6 @@ public class TableKitchenActivity extends AppCompatActivity implements TableKitc
         this.soundIdDestroy = this.soundPool.load(this, R.raw.notify,1);
 
     }
-    // Khi người dùng nhấn vào button "Gun".
-    public void playSoundGun(View view)  {
-        if(loaded)  {
-            float leftVolumn = volume;
-            float rightVolumn = volume;
-            // Phát âm thanh tiếng súng. Trả về ID của luồng mới phát ra.
-            int streamId = this.soundPool.play(this.soundIdDestroy,leftVolumn, rightVolumn, 1, 0, 1f);
-        }
-    }
 
     void setEvent() {
         RecyclerView recyclerView = binding.rvTable;
@@ -182,52 +173,4 @@ public class TableKitchenActivity extends AppCompatActivity implements TableKitc
 
         }
     };
-
-    ChildEventListener eventListener = new ChildEventListener() {
-        @Override
-        public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-            Log.e("onChildAdded", "--");
-
-            for(TableOrder tableOrder: tableOrders)
-                if(dataSnapshot.getKey().equals(tableOrder.getKey())) return;
-            TableOrder tableOrder = dataSnapshot.getValue(TableOrder.class);
-            tableOrder.setKey(dataSnapshot.getKey());
-                Toast.makeText(TableKitchenActivity.this, tableOrder.getTable() + ": Vừa order", Toast.LENGTH_SHORT).show();
-            tableOrders.add(tableOrder);
-            Log.e("Size: ", tableOrders.size() + "");
-            adapter.notifyDataSetChanged();
-        }
-
-        @Override
-        public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-            Toast.makeText(TableKitchenActivity.this, "Changed " + dataSnapshot.toString(), Toast.LENGTH_SHORT).show();
-
-        }
-
-        @Override
-        public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
-            TableOrder tableOrder = dataSnapshot.getValue(TableOrder.class);
-            for(TableOrder t: tableOrders){
-                if(t.getKey().equals(dataSnapshot.getKey())){
-                    tableOrders.remove(t);
-                    return;
-                }
-            }
-            Toast.makeText(TableKitchenActivity.this, tableOrder.getTable() + ": Bắt đầu được làm nước", Toast.LENGTH_SHORT).show();
-            Log.e("Size: ", tableOrders.size() + "");
-
-            adapter.notifyDataSetChanged();
-        }
-
-        @Override
-        public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
-        }
-
-        @Override
-        public void onCancelled(@NonNull DatabaseError databaseError) {
-
-        }
-    };
-
 }

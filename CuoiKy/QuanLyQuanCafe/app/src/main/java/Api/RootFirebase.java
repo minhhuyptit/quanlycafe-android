@@ -8,6 +8,7 @@ import java.util.Date;
 
 public class RootFirebase {
     public static DatabaseReference root = FirebaseDatabase.getInstance().getReference();
+    public static DatabaseReference rootGuest = root.child("guest");
     public static DatabaseReference rootKitchen = root.child("notification").child("kitchen");
     public static DatabaseReference rootNotify = root.child("notification");
     public static DatabaseReference rootTableKitchen;

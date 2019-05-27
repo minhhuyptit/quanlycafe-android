@@ -44,7 +44,7 @@ public class StatisticDetailRecyclerViewAdapter extends RecyclerView.Adapter {
         binding.txtTenMon.setText(name);
         String quantity = " x "     +statisticDetails.get(position).getQuantity();
         binding.txtSoLuong.setText(quantity);
-        String price = String.format("%,d", (int) (statisticDetails.get(position).getPrice()));
+        String price = String.format("%,d", (int) (statisticDetails.get(position).getPrice() * statisticDetails.get(position).getQuantity()));
         binding.txtGia.setText(price);
     }
 

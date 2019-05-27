@@ -83,6 +83,5 @@ public class OrderDetailActivity extends AppCompatActivity{
     public void onBackPressed() {
         super.onBackPressed();
         RootFirebase.rootTableKitchen.setValue("order");
-        //Khi quay lai phai hoi. Ban da pha che xong ban nay chua, neu chua xong thi cap nhat lai trang thai = order
     }
 }

@@ -28,7 +28,6 @@ public class AreaActivity extends AppCompatActivity implements CommonAPI.Callbac
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_area);
-        //
         new CommonAPI(this).get_area(getApplicationContext());
     }
 

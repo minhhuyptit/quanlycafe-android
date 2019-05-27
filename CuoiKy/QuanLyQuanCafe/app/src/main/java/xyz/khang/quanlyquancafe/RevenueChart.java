@@ -49,7 +49,6 @@ public class RevenueChart extends AppCompatActivity implements StatisticAPI.Call
         Calendar calendar = Calendar.getInstance();
         final int year = yearStatistic = calendar.get(Calendar.YEAR);
 
-
         new StatisticAPI(this).get_statistic(getApplicationContext());
 
         btnNex.setOnClickListener(new View.OnClickListener() {
@@ -134,7 +133,6 @@ public class RevenueChart extends AppCompatActivity implements StatisticAPI.Call
 
     @Override
     public void getResponse(String response) {
-//        Toast.makeText(this, response, Toast.LENGTH_SHORT).show();
         Gson gson = new Gson();
         Type collectionType = new TypeToken<Collection<SumRevenue>>() {}.getType();
         try{

@@ -61,21 +61,18 @@ public class MenuActivity extends AppCompatActivity
         api.get_table_cart(Table.current_id);
         api.get_product();
         api.get_category();
-
         binding.btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 setRVCategory();
             }
         });
-
         binding.btnOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 order();
             }
         });
-
         binding.btnCheck.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -102,7 +99,6 @@ public class MenuActivity extends AppCompatActivity
         } catch (Exception e) {
             cart = new Cart();
         }
-
     }
 
     @Override
@@ -121,7 +117,6 @@ public class MenuActivity extends AppCompatActivity
     @Override
     public void onGetProductResponse(String response) {
         try {
-//            Toast.makeText(getApplicationContext(),response,Toast.LENGTH_SHORT).show();
             Gson gson = new Gson();
             Type collectionType = new TypeToken<List<Product>>() {
             }.getType();
@@ -202,7 +197,6 @@ public class MenuActivity extends AppCompatActivity
         } catch (Exception e) {
             Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
         }
-
     }
 
     private void setRVCategory() {

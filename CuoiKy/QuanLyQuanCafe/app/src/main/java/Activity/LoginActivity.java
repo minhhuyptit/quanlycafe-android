@@ -22,21 +22,17 @@ import xyz.khang.quanlyquancafe.databinding.ActivityLoginBinding;
 public class LoginActivity extends AppCompatActivity implements CommonAPI.Callback {
     ActivityLoginBinding binding;
     ImageView iv;
-
+    User user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_login);
         iv = binding.imgLogo;
-        //iv.setVisibility(View.INVISIBLE);
-
         init();
         binding.btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 attempt_login();
-//                login_success();
-                //login_fail();
             }
         });
     }
@@ -52,12 +48,9 @@ public class LoginActivity extends AppCompatActivity implements CommonAPI.Callba
         Log.e("e", "onResponse LoginActivity " + response);
         boolean flag_login_success = false;
         try {
-            // parse json to a user
             Gson gson = new Gson();
-            User user = gson.fromJson(response, User.class);
-            // save id;
+            user = gson.fromJson(response, User.class);
             User.logged_id = user.id;
-            //save login name
             User.logged_name = user.fullname;
             flag_login_success = true;
             Toast.makeText(getApplicationContext(), response, Toast.LENGTH_SHORT).show();
@@ -86,9 +79,20 @@ public class LoginActivity extends AppCompatActivity implements CommonAPI.Callba
         as.addAnimation(animation);
         as.addAnimation(animation1);
         iv.startAnimation(as);
-        Intent intent = new Intent(this, FuncActivity.class);
         Toast.makeText(this, "Đăng nhập thành công!", Toast.LENGTH_SHORT).show();
-//                Intent intent = new Intent(this, AreaActivity.class);
+        Intent intent = null;
+        switch (user.accessLevel){
+            case 1:
+                intent = new Intent(this, FuncActivity.class);
+                break;
+            case 2:
+                intent = new Intent(this, TableKitchenActivity.class);
+
+                break;
+            case 3:
+                intent = new Intent(this, AreaActivity.class);
+                break;
+        }
         startActivity(intent);
     }
 
